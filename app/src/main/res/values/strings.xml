@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">TylerRicardC196</string>
+    <string name="welcome_to_my_project">Welcome to My Project</string>
+    <string name="view">View...</string>
+    <string name="terms">Terms</string>
+    <string name="courses">Courses</string>
+    <string name="assignments">Assignments</string>
+    <string name="string_terms">Terms</string>
+    <string name="string_string_terms" />
+
+</resources>
