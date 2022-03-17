@@ -6,7 +6,7 @@ import android.os.Bundle;
 
 import com.example.tylerricardc196.R;
 
-public class Terms extends AppCompatActivity {
+public class termsUI extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

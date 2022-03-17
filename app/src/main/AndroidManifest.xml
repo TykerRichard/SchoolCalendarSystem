@@ -19,13 +19,13 @@
             android:name=".UI.DetailedCourses"
             android:exported="false" />
         <activity
-            android:name=".UI.Assignments"
+            android:name=".UI.AssignmentsUI"
             android:exported="false" />
         <activity
-            android:name=".UI.Courses"
+            android:name=".UI.CoursesUI"
             android:exported="false" />
         <activity
-            android:name=".UI.Terms"
+            android:name=".UI.termsUI"
             android:exported="false" />
         <activity
             android:name=".UI.MainActivity"

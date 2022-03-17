@@ -4,7 +4,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
@@ -31,13 +30,13 @@ public class MainActivity extends AppCompatActivity {
                 String selection= (String) item.getTitle();
                 switch (selection) {
                     case "Assignments":
-                        startActivity(new Intent(MainActivity.this, Assignments.class));
+                        startActivity(new Intent(MainActivity.this, AssignmentsUI.class));
                         return true;
                     case "Courses":
-                        startActivity(new Intent(MainActivity.this, Courses.class));
+                        startActivity(new Intent(MainActivity.this, CoursesUI.class));
                         return true;
                     case "Terms":
-                        startActivity(new Intent(MainActivity.this, Terms.class));
+                        startActivity(new Intent(MainActivity.this, termsUI.class));
                         return true;
                     default:
                         return false;
