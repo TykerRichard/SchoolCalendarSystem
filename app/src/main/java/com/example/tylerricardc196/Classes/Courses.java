@@ -18,19 +18,17 @@ public class Courses {
     private String instructorName;
     private int phoneNumber;
     private String emailAddress;
-    private ArrayList<String> notes;
 
 
-    public Courses(int courseID, String courseTitle, Date startDate, Date endDate, String status, String instructorName, int phoneNumber, String emailAddress, String note) {
+
+    public Courses(int courseID, String courseTitle, Date startDate, Date endDate, String status) {
         this.courseID = courseID;
         this.courseTitle = courseTitle;
         this.startDate = startDate;
         this.endDate = endDate;
         this.status = status;
-        this.instructorName = instructorName;
-        this.phoneNumber = phoneNumber;
-        this.emailAddress = emailAddress;
-        notes.add(note);
+
+
     }
 
     @Override
@@ -46,6 +44,8 @@ public class Courses {
                 ", emailAddress='" + emailAddress + '\'' +
                 '}';
     }
+
+
 
     public int getCourseID() {
         return courseID;
@@ -87,27 +87,5 @@ public class Courses {
         this.status = status;
     }
 
-    public String getInstructorName() {
-        return instructorName;
-    }
 
-    public void setInstructorName(String instructorName) {
-        this.instructorName = instructorName;
-    }
-
-    public int getPhoneNumber() {
-        return phoneNumber;
-    }
-
-    public void setPhoneNumber(int phoneNumber) {
-        this.phoneNumber = phoneNumber;
-    }
-
-    public String getEmailAddress() {
-        return emailAddress;
-    }
-
-    public void setEmailAddress(String emailAddress) {
-        this.emailAddress = emailAddress;
-    }
 }
