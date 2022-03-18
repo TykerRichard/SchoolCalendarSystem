@@ -12,8 +12,8 @@ public class Courses {
     @PrimaryKey(autoGenerate = true)
     private int courseID;
     private String courseTitle;
-    private Date startDate;
-    private Date endDate;
+    private String startDate;
+    private String endDate;
     private String status;
     private String instructorName;
     private int phoneNumber;
@@ -21,12 +21,15 @@ public class Courses {
 
 
 
-    public Courses(int courseID, String courseTitle, Date startDate, Date endDate, String status) {
+    public Courses(int courseID, String courseTitle, String startDate, String endDate, String status, String instructorName, int phoneNumber, String emailAddress) {
         this.courseID = courseID;
         this.courseTitle = courseTitle;
         this.startDate = startDate;
         this.endDate = endDate;
         this.status = status;
+        this.instructorName = instructorName;
+        this.phoneNumber= phoneNumber;
+        this.emailAddress = emailAddress;
 
 
     }
@@ -45,7 +48,29 @@ public class Courses {
                 '}';
     }
 
+    public String getInstructorName() {
+        return instructorName;
+    }
 
+    public void setInstructorName(String instructorName) {
+        this.instructorName = instructorName;
+    }
+
+    public int getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public void setPhoneNumber(int phoneNumber) {
+        this.phoneNumber = phoneNumber;
+    }
+
+    public String getEmailAddress() {
+        return emailAddress;
+    }
+
+    public void setEmailAddress(String emailAddress) {
+        this.emailAddress = emailAddress;
+    }
 
     public int getCourseID() {
         return courseID;
@@ -63,19 +88,19 @@ public class Courses {
         this.courseTitle = courseTitle;
     }
 
-    public Date getStartDate() {
+    public String getStartDate() {
         return startDate;
     }
 
-    public void setStartDate(Date startDate) {
+    public void setStartDate(String startDate) {
         this.startDate = startDate;
     }
 
-    public Date getEndDate() {
+    public String getEndDate() {
         return endDate;
     }
 
-    public void setEndDate(Date endDate) {
+    public void setEndDate(String endDate) {
         this.endDate = endDate;
     }
 

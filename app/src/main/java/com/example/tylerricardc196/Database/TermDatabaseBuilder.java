@@ -9,21 +9,15 @@ import androidx.room.RoomDatabase;
 
 import com.example.tylerricardc196.Classes.Assignments;
 import com.example.tylerricardc196.Classes.Courses;
-import com.example.tylerricardc196.Classes.Instructor;
-import com.example.tylerricardc196.Classes.Notes;
 import com.example.tylerricardc196.Classes.Terms;
 import com.example.tylerricardc196.DAO.AssignmentDAO;
 import com.example.tylerricardc196.DAO.CourseDAO;
-import com.example.tylerricardc196.DAO.InstructorDAO;
-import com.example.tylerricardc196.DAO.NotesDAO;
 import com.example.tylerricardc196.DAO.TermDAO;
 
-@Database(entities = {Assignments.class, Courses.class, Instructor.class, Notes.class, Terms.class }, version = 1,exportSchema = false)
+@Database(entities = {Assignments.class, Courses.class, Terms.class }, version = 1,exportSchema = false)
 public abstract class TermDatabaseBuilder extends RoomDatabase {
     public abstract AssignmentDAO assignmentDAO();
     public abstract CourseDAO courseDAO();
-    public abstract InstructorDAO instructorDAO();
-    public abstract NotesDAO notesDAO();
     public abstract TermDAO termDAO();
 
     private static volatile TermDatabaseBuilder INSTANCE;

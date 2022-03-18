@@ -10,10 +10,10 @@ public class Terms {
     private int termID;
 
     private String termName;
-    private Date startDate;
-    private Date endDate;
+    private String startDate;
+    private String endDate;
 
-    public Terms(int termID, String termName, Date startDate, Date endDate) {
+    public Terms(int termID, String termName, String startDate, String endDate) {
         this.termID = termID;
         this.startDate = startDate;
         this.endDate = endDate;
@@ -45,19 +45,19 @@ public class Terms {
         this.termName = termName;
     }
 
-    public Date getStartDate() {
+    public String getStartDate() {
         return startDate;
     }
 
-    public void setStartDate(Date startDate) {
+    public void setStartDate(String startDate) {
         this.startDate = startDate;
     }
 
-    public Date getEndDate() {
+    public String getEndDate() {
         return endDate;
     }
 
-    public void setEndDate(Date endDate) {
+    public void setEndDate(String endDate) {
         this.endDate = endDate;
     }
 }

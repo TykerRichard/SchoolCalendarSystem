@@ -11,9 +11,9 @@ public class Assignments {
     private int assignmentID;
     private String assignmentName;
     private String type;
-    private Date endDate;
+    private String endDate;
 
-    public Assignments(int assignmentID, String assignmentName, String type, Date endDate) {
+    public Assignments(int assignmentID, String assignmentName, String type, String endDate) {
         this.assignmentID = assignmentID;
         this.assignmentName = assignmentName;
         this.type = type;
@@ -54,11 +54,11 @@ public class Assignments {
         this.type = type;
     }
 
-    public Date getEndDate() {
+    public String getEndDate() {
         return endDate;
     }
 
-    public void setEndDate(Date endDate) {
+    public void setEndDate(String endDate) {
         this.endDate = endDate;
     }
 }
