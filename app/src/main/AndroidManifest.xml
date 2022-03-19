@@ -10,10 +10,13 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.TylerRicardC196">
         <activity
-            android:name=".ScrollingActivity"
+            android:name=".UI.AddModifyTerm"
             android:exported="false"
-            android:label="@string/title_activity_scrolling"
-            android:theme="@style/Theme.TylerRicardC196.NoActionBar" />
+            android:label="Add / Modify Term"/>
+        <activity
+            android:name=".UI.TermUI"
+            android:exported="false"
+            android:label="@string/title_activity_term_ui" />
         <activity
             android:name=".UI.DetailedAssignment"
             android:exported="false" />
@@ -28,9 +31,6 @@
             android:exported="false" />
         <activity
             android:name=".UI.CoursesUI"
-            android:exported="false" />
-        <activity
-            android:name=".UI.termsUI"
             android:exported="false" />
         <activity
             android:name=".UI.MainActivity"

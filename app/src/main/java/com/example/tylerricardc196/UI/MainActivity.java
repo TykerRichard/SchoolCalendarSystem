@@ -36,7 +36,7 @@ public class MainActivity extends AppCompatActivity {
                         startActivity(new Intent(MainActivity.this, CoursesUI.class));
                         return true;
                     case "Terms":
-                        startActivity(new Intent(MainActivity.this, termsUI.class));
+                        startActivity(new Intent(MainActivity.this, TermUI.class));
                         return true;
                     default:
                         return false;
