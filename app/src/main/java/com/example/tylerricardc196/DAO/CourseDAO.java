@@ -11,7 +11,7 @@ import com.example.tylerricardc196.Classes.Courses;
 
 import java.util.List;
 
-
+@Dao
 public interface CourseDAO {
     @Insert(onConflict= OnConflictStrategy.IGNORE)
     void insert(Courses courses);
@@ -22,7 +22,7 @@ public interface CourseDAO {
     @Delete
     void delete(Courses course);
 
-    @Query("SELECT * FROM Assignments ORDER BY assignmentName ASC")
+    @Query("SELECT * FROM courses ORDER BY courseID ASC")
     List<Courses> getAllCourses();
 
 }

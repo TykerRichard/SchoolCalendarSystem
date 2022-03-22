@@ -11,7 +11,7 @@ import com.example.tylerricardc196.Classes.Assignments;
 
 import java.util.List;
 
-
+@Dao
 public interface AssignmentDAO {
     @Insert(onConflict= OnConflictStrategy.IGNORE)
     void insert(Assignments assignment);

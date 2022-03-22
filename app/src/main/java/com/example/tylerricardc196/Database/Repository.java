@@ -129,7 +129,7 @@ public class Repository {
             e.printStackTrace();
         }
     }
-    public List<Assignments> gettAllAssignments() {
+    public List<Assignments> getAllAssignments() {
         databaseExecutor.execute(() -> {
             tAllAssignments = tAssignmentDAO.getAllAssignments();
         });

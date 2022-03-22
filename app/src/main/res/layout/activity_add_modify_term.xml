@@ -30,7 +30,8 @@
                 android:inputType="textPersonName"
                 android:minHeight="48dp"
                 android:textColorHint="#757575"
-                android:textSize="15sp" />
+                android:textSize="15sp"
+                android:importantForAutofill="no" />
         </TableRow>
 
         <TableRow
@@ -38,17 +39,21 @@
             android:layout_height="match_parent">
 
             <TextView
-                android:id="@+id/textView9"
+                android:id="@+id/StartDate"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="TextView" />
+                android:text="@string/start_date" />
 
             <EditText
-                android:id="@+id/editTextDate5"
+                android:id="@+id/StartDateField"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:ems="10"
-                android:inputType="date" />
+                android:hint="@string/term_start_date"
+                android:importantForAutofill="no"
+                android:inputType="date"
+                android:textColorHint="#757575"
+                tools:ignore="TouchTargetSizeCheck" />
 
         </TableRow>
 
@@ -57,31 +62,46 @@
             android:layout_height="match_parent">
 
             <TextView
-                android:id="@+id/textView10"
+                android:id="@+id/EndDate"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="TextView" />
+                android:text="@string/end_date" />
 
             <EditText
-                android:id="@+id/editTextDate6"
+                android:id="@+id/EndDateField"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:autofillHints=""
                 android:ems="10"
-                android:inputType="date" />
+                android:hint="@string/term_end_date"
+                android:inputType="date"
+                android:textColorHint="#757575"
+                tools:ignore="TouchTargetSizeCheck" />
 
         </TableRow>
 
     </TableLayout>
 
     <Button
-        android:id="@+id/button5"
+        android:id="@+id/SaveButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_marginStart="52dp"
         android:layout_marginTop="187dp"
-        android:text="Button" />
+        android:onClick="SaveButtonClicked"
+        android:text="@string/save" />
+
+    <Button
+        android:id="@+id/CancelButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="187dp"
+        android:onClick="CancelButtonClicked"
+        android:text="@string/cancel" />
 
 
 </RelativeLayout>

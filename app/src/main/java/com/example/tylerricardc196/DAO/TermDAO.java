@@ -11,7 +11,7 @@ import com.example.tylerricardc196.Classes.Terms;
 
 import java.util.List;
 
-
+@Dao
 public interface TermDAO {
     @Insert(onConflict= OnConflictStrategy.IGNORE)
     void insert(Terms term);
