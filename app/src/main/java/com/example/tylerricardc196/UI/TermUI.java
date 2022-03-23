@@ -10,29 +10,48 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.recyclerview.widget.DefaultItemAnimator;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.tylerricardc196.Classes.Terms;
+import com.example.tylerricardc196.Database.Repository;
 import com.example.tylerricardc196.R;
 
 import com.google.android.material.appbar.CollapsingToolbarLayout;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 
+import java.util.List;
+
 public class TermUI extends AppCompatActivity {
 
-
+    List<Terms> termsList;
+    RecyclerView recyclerView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_term_ui);
 
-
         ActionBar actionBar = getSupportActionBar();
         actionBar.setTitle("Terms");
 
-/*        actionBar.setDisplayUseLogoEnabled(true);
-        actionBar.setDisplayShowHomeEnabled(true);*/
+        Repository repository=new Repository(getApplication());
+        recyclerView=findViewById(R.id.TermListView);
+        termsList=repository.getAllTerms();
+        setAdapter();
+
+
         }
+
+    private void setAdapter() {
+        RecyclerAdapter adapter = new RecyclerAdapter(termsList);
+        RecyclerView.LayoutManager layout= new LinearLayoutManager(getApplicationContext());
+        recyclerView.setLayoutManager(layout);
+        recyclerView.setItemAnimator(new DefaultItemAnimator());
+        recyclerView.setAdapter(adapter);
+    }
 
 
     @Override

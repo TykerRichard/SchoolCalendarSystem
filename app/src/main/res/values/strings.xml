@@ -117,5 +117,8 @@
     <string name="term_start_date">Term Start Date</string>
     <string name="term_end_date">Term End Date</string>
     <string name="cancel">Cancel</string>
+    <string name="term">Term</string>
+    <string name="add_course">Add Course</string>
+    <string name="course_details">Course Details</string>
 
 </resources>
