@@ -6,4 +6,228 @@
     android:layout_height="match_parent"
     tools:context=".UI.AddModifyCourses">
 
+    <TextView
+        android:id="@+id/CourseName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="65dp"
+        android:text="@string/Course_Name"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/CourseStartDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="35dp"
+        android:text="@string/start_date"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/CourseName" />
+
+    <TextView
+        android:id="@+id/CourseEndDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="35dp"
+        android:text="@string/end_date"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/CourseStartDate" />
+
+    <TextView
+        android:id="@+id/Status"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="35dp"
+        android:text="@string/status"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/CourseEndDate" />
+
+    <TextView
+        android:id="@+id/InstructorName"
+        android:layout_width="107dp"
+        android:layout_height="20dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="35dp"
+        android:text="@string/instructor_name"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Status" />
+
+    <TextView
+        android:id="@+id/InstructorPhoneNumber"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="35dp"
+        android:text="@string/instructor_phone_number"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/InstructorName" />
+
+    <TextView
+        android:id="@+id/InstructorEmail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="35dp"
+        android:text="@string/instructor_email"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/InstructorPhoneNumber" />
+
+    <EditText
+        android:id="@+id/CourseNameField"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="80dp"
+        android:layout_marginTop="44dp"
+        android:ems="10"
+        android:hint="@string/enter_course_name"
+        android:inputType="textPersonName"
+        android:textColorHint="#757575"
+        android:textSize="14sp"
+        app:layout_constraintStart_toEndOf="@+id/CourseName"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="TouchTargetSizeCheck"
+        android:importantForAutofill="no" />
+
+    <EditText
+        android:id="@+id/CourseStartDateField"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="100dp"
+        android:layout_marginTop="28dp"
+        android:ems="10"
+        android:hint="@string/enter_start_date"
+        android:inputType="date"
+        android:textColorHint="#757575"
+        android:textSize="14sp"
+        app:layout_constraintStart_toEndOf="@+id/CourseStartDate"
+        app:layout_constraintTop_toBottomOf="@+id/CourseNameField"
+        tools:ignore="TouchTargetSizeCheck"
+        android:importantForAutofill="no" />
+
+    <EditText
+        android:id="@+id/CourseEndDateField"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="108dp"
+        android:layout_marginTop="8dp"
+        android:ems="10"
+        android:hint="@string/enter_end_date"
+        android:inputType="date"
+        android:textColorHint="#757575"
+        android:textSize="14sp"
+        app:layout_constraintStart_toEndOf="@+id/CourseEndDate"
+        app:layout_constraintTop_toBottomOf="@+id/CourseStartDateField"
+        tools:ignore="TouchTargetSizeCheck"
+        android:importantForAutofill="no" />
+
+    <Spinner
+        android:id="@+id/StatusSpinner"
+        android:layout_width="162dp"
+        android:layout_height="34dp"
+        android:layout_marginStart="124dp"
+        android:layout_marginTop="28dp"
+        app:layout_constraintStart_toEndOf="@+id/Status"
+        app:layout_constraintTop_toBottomOf="@+id/CourseEndDateField"
+        tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+
+    <EditText
+        android:id="@+id/InstructorNameField"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="52dp"
+        android:layout_marginTop="8dp"
+        android:ems="10"
+        android:hint="@string/enter_instructor_name"
+        android:importantForAutofill="no"
+        android:inputType="textPersonName"
+        android:textColorHint="#757575"
+        android:textSize="14sp"
+        app:layout_constraintStart_toEndOf="@+id/InstructorName"
+        app:layout_constraintTop_toBottomOf="@+id/StatusSpinner"
+        tools:ignore="TouchTargetSizeCheck" />
+
+    <EditText
+        android:id="@+id/InstuctorPhoneNumberField"
+        android:layout_width="170dp"
+        android:layout_height="42dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="12dp"
+        android:ems="10"
+        android:hint="@string/enter_inst_phone_number"
+        android:importantForAutofill="no"
+        android:inputType="phone"
+        android:textColorHint="#757575"
+        android:textSize="14sp"
+        app:layout_constraintStart_toEndOf="@+id/InstructorPhoneNumber"
+        app:layout_constraintTop_toBottomOf="@+id/InstructorNameField"
+        tools:ignore="TouchTargetSizeCheck" />
+
+    <EditText
+        android:id="@+id/InstructorEmailField"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="56dp"
+        android:layout_marginTop="16dp"
+        android:ems="10"
+        android:hint="@string/enter_inst_email"
+        android:importantForAutofill="no"
+        android:inputType="textEmailAddress"
+        android:textColorHint="#757575"
+        android:textSize="14sp"
+        app:layout_constraintStart_toEndOf="@+id/InstructorEmail"
+        app:layout_constraintTop_toBottomOf="@+id/InstuctorPhoneNumberField"
+        tools:ignore="TouchTargetSizeCheck" />
+
+    <Button
+        android:id="@+id/CourseSaveButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="76dp"
+        android:layout_marginTop="40dp"
+        android:text="@string/save"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Notes"
+        tools:ignore="DuplicateSpeakableTextCheck" />
+
+    <Button
+        android:id="@+id/CourseCancelButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="48dp"
+        android:layout_marginTop="36dp"
+        android:text="@string/cancel"
+        app:layout_constraintStart_toEndOf="@+id/CourseSaveButton"
+        app:layout_constraintTop_toBottomOf="@+id/NotesField" />
+
+    <TextView
+        android:id="@+id/Notes"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="35dp"
+        android:text="@string/notes"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/InstructorEmail" />
+
+    <EditText
+        android:id="@+id/NotesField"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="116dp"
+        android:layout_marginTop="8dp"
+        android:ems="10"
+        android:gravity="start|top"
+        android:hint="@string/enter_notes"
+        android:importantForAutofill="no"
+        android:inputType="textMultiLine"
+        android:textColorHint="#757575"
+        android:textSize="14sp"
+        app:layout_constraintStart_toEndOf="@+id/Notes"
+        app:layout_constraintTop_toBottomOf="@+id/InstructorEmailField"
+        tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

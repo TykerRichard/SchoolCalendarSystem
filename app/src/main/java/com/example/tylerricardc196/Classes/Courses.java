@@ -18,10 +18,11 @@ public class Courses {
     private String instructorName;
     private int phoneNumber;
     private String emailAddress;
+    private String notes;
 
 
 
-    public Courses(int courseID, String courseTitle, String startDate, String endDate, String status, String instructorName, int phoneNumber, String emailAddress) {
+    public Courses(int courseID, String courseTitle, String startDate, String endDate, String status, String instructorName, int phoneNumber, String emailAddress, String notes) {
         this.courseID = courseID;
         this.courseTitle = courseTitle;
         this.startDate = startDate;
@@ -30,6 +31,7 @@ public class Courses {
         this.instructorName = instructorName;
         this.phoneNumber= phoneNumber;
         this.emailAddress = emailAddress;
+        this.notes=notes;
 
 
     }
@@ -112,5 +114,11 @@ public class Courses {
         this.status = status;
     }
 
+    public String getNotes() {
+        return notes;
+    }
 
+    public void setNotes(String notes) {
+        this.notes = notes;
+    }
 }
