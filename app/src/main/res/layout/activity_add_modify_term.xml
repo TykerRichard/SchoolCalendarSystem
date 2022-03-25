@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
 
@@ -7,101 +7,145 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <TableLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+    <TextView
+        android:id="@+id/TermNameLabel"
+        android:layout_width="84dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="32dp"
+        android:text="@string/Term_Name"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
+    <EditText
+        android:id="@+id/TermNameField"
+        android:layout_width="150dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="64dp"
+        android:layout_marginTop="12dp"
+        android:ems="10"
+        android:hint="@string/enter_term_name"
+        android:importantForAutofill="no"
+        android:inputType="textPersonName"
+        android:minHeight="48dp"
+        android:textColorHint="#757575"
+        android:textSize="15sp"
+        app:layout_constraintStart_toEndOf="@+id/TermNameLabel"
+        app:layout_constraintTop_toTopOf="parent" />
 
-            <TextView
-                android:id="@+id/TermNameLabel"
-                android:layout_width="84dp"
-                android:layout_height="wrap_content"
-                android:text="@string/Term_Name" />
+    <TextView
+        android:id="@+id/StartDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="40dp"
+        android:text="@string/start_date"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/TermNameLabel" />
 
-            <EditText
-                android:id="@+id/TermNameField"
-                android:layout_width="150dp"
-                android:layout_height="48dp"
-                android:ems="10"
-                android:hint="@string/enter_term_name"
-                android:inputType="textPersonName"
-                android:minHeight="48dp"
-                android:textColorHint="#757575"
-                android:textSize="15sp"
-                android:importantForAutofill="no" />
-        </TableRow>
+    <EditText
+        android:id="@+id/StartDateField"
+        android:layout_width="153dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="84dp"
+        android:layout_marginTop="8dp"
+        android:clickable="false"
+        android:cursorVisible="false"
+        android:ems="10"
+        android:focusable="false"
+        android:focusableInTouchMode="false"
+        android:hint="@string/term_start_date"
+        android:importantForAutofill="no"
+        android:inputType="date"
+        android:onClick="StartDateClicked"
+        android:textColorHint="#757575"
+        android:textSize="15sp"
+        app:layout_constraintStart_toEndOf="@+id/StartDate"
+        app:layout_constraintTop_toBottomOf="@+id/TermNameField"
+        tools:ignore="TouchTargetSizeCheck" />
 
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
+    <TextView
+        android:id="@+id/EndDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="32dp"
+        android:text="@string/end_date"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/StartDate" />
 
-            <TextView
-                android:id="@+id/StartDate"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/start_date" />
-
-            <EditText
-                android:id="@+id/StartDateField"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:hint="@string/term_start_date"
-                android:importantForAutofill="no"
-                android:inputType="date"
-                android:textColorHint="#757575"
-                tools:ignore="TouchTargetSizeCheck" />
-
-        </TableRow>
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <TextView
-                android:id="@+id/EndDate"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/end_date" />
-
-            <EditText
-                android:id="@+id/EndDateField"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:autofillHints=""
-                android:ems="10"
-                android:hint="@string/term_end_date"
-                android:inputType="date"
-                android:textColorHint="#757575"
-                tools:ignore="TouchTargetSizeCheck" />
-
-        </TableRow>
-
-    </TableLayout>
+    <EditText
+        android:id="@+id/EndDateField"
+        android:layout_width="145dp"
+        android:layout_height="46dp"
+        android:layout_marginStart="92dp"
+        android:layout_marginTop="10dp"
+        android:autofillHints=""
+        android:clickable="false"
+        android:cursorVisible="false"
+        android:ems="10"
+        android:focusable="false"
+        android:focusableInTouchMode="false"
+        android:hint="@string/term_end_date"
+        android:inputType="date"
+        android:onClick="EndDateClicked"
+        android:textColorHint="#757575"
+        android:textSize="15sp"
+        app:layout_constraintStart_toEndOf="@+id/EndDate"
+        app:layout_constraintTop_toBottomOf="@+id/StartDateField"
+        tools:ignore="TouchTargetSizeCheck" />
 
     <Button
         android:id="@+id/SaveButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginStart="52dp"
-        android:layout_marginTop="187dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="232dp"
         android:onClick="SaveButtonClicked"
-        android:text="@string/save" />
+        android:text="@string/save"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/CancelButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="187dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="232dp"
         android:onClick="CancelButtonClicked"
-        android:text="@string/cancel" />
+        android:text="@string/cancel"
+        app:layout_constraintStart_toEndOf="@+id/TermDeleteButton"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/TermDeleteButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="232dp"
+        android:text="@string/delete"
+        app:layout_constraintStart_toEndOf="@+id/SaveButton"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/TermID"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="20dp"
+        android:text="@string/term_id"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/EndDate" />
+
+    <TextView
+        android:id="@+id/TermIDField"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="96dp"
+        android:layout_marginTop="16dp"
+        android:text="@string/disabled"
+        app:layout_constraintStart_toEndOf="@+id/TermID"
+        app:layout_constraintTop_toBottomOf="@+id/EndDateField" />
 
 
-</RelativeLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -132,5 +132,8 @@
     <string name="enter_inst_email">Enter Inst. Email</string>
     <string name="notes">Notes</string>
     <string name="enter_notes">Enter Notes</string>
+    <string name="delete">Delete</string>
+    <string name="term_id">Term ID</string>
+    <string name="disabled">Disabled</string>
 
 </resources>

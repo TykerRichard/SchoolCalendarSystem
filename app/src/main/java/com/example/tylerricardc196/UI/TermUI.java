@@ -4,12 +4,10 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -17,10 +15,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.tylerricardc196.Classes.Terms;
 import com.example.tylerricardc196.Database.Repository;
 import com.example.tylerricardc196.R;
-
-import com.google.android.material.appbar.CollapsingToolbarLayout;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.snackbar.Snackbar;
 
 import java.util.List;
 
@@ -43,10 +37,11 @@ public class TermUI extends AppCompatActivity {
         setAdapter();
 
 
+
         }
 
     private void setAdapter() {
-        RecyclerAdapter adapter = new RecyclerAdapter(termsList);
+        TermRecyclerAdapter adapter = new TermRecyclerAdapter(termsList);
         RecyclerView.LayoutManager layout= new LinearLayoutManager(getApplicationContext());
         recyclerView.setLayoutManager(layout);
         recyclerView.setItemAnimator(new DefaultItemAnimator());
@@ -71,6 +66,8 @@ public class TermUI extends AppCompatActivity {
         }
     return false;
     }
+
+
 
 
 }
