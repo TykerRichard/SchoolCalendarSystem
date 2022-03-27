@@ -41,7 +41,9 @@ public class AddModifyTerm extends AppCompatActivity {
         final Button save = findViewById(R.id.SaveButton);
         final Button cancel = findViewById(R.id.CancelButton);
         EditText startDateFld = findViewById(R.id.StartDateField);
+        startDateFld.setFocusableInTouchMode(false);
         EditText endDateFld = findViewById(R.id.EndDateField);
+        endDateFld.setFocusableInTouchMode(false);
         EditText termNameFld = findViewById(R.id.TermNameField);
         TextView termIDFld = findViewById(R.id.TermIDField);
         Repository repository = new Repository(getApplication());
@@ -108,6 +110,8 @@ public class AddModifyTerm extends AppCompatActivity {
 
         cancel.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
+                Intent intent=new Intent(AddModifyTerm.this,TermUI.class);
+                startActivity(intent);
                 finish();
 
             }

@@ -10,8 +10,8 @@
         android:id="@+id/CourseName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="65dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="56dp"
         android:text="@string/Course_Name"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -21,7 +21,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
-        android:layout_marginTop="35dp"
+        android:layout_marginTop="44dp"
         android:text="@string/start_date"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/CourseName" />
@@ -31,7 +31,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
-        android:layout_marginTop="35dp"
+        android:layout_marginTop="40dp"
         android:text="@string/end_date"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/CourseStartDate" />
@@ -41,7 +41,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
-        android:layout_marginTop="35dp"
+        android:layout_marginTop="44dp"
         android:text="@string/status"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/CourseEndDate" />
@@ -60,8 +60,8 @@
         android:id="@+id/InstructorPhoneNumber"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="35dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="44dp"
         android:text="@string/instructor_phone_number"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/InstructorName" />
@@ -81,55 +81,55 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="80dp"
-        android:layout_marginTop="44dp"
+        android:layout_marginTop="45dp"
         android:ems="10"
         android:hint="@string/enter_course_name"
+        android:importantForAutofill="no"
         android:inputType="textPersonName"
         android:textColorHint="#757575"
         android:textSize="14sp"
         app:layout_constraintStart_toEndOf="@+id/CourseName"
         app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="TouchTargetSizeCheck"
-        android:importantForAutofill="no" />
+        tools:ignore="TouchTargetSizeCheck" />
 
     <EditText
         android:id="@+id/CourseStartDateField"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="100dp"
-        android:layout_marginTop="28dp"
+        android:layout_marginTop="20dp"
         android:ems="10"
         android:hint="@string/enter_start_date"
+        android:importantForAutofill="no"
         android:inputType="date"
         android:textColorHint="#757575"
         android:textSize="14sp"
         app:layout_constraintStart_toEndOf="@+id/CourseStartDate"
         app:layout_constraintTop_toBottomOf="@+id/CourseNameField"
-        tools:ignore="TouchTargetSizeCheck"
-        android:importantForAutofill="no" />
+        tools:ignore="TouchTargetSizeCheck" />
 
     <EditText
         android:id="@+id/CourseEndDateField"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="108dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="20dp"
         android:ems="10"
         android:hint="@string/enter_end_date"
+        android:importantForAutofill="no"
         android:inputType="date"
         android:textColorHint="#757575"
         android:textSize="14sp"
         app:layout_constraintStart_toEndOf="@+id/CourseEndDate"
         app:layout_constraintTop_toBottomOf="@+id/CourseStartDateField"
-        tools:ignore="TouchTargetSizeCheck"
-        android:importantForAutofill="no" />
+        tools:ignore="TouchTargetSizeCheck" />
 
     <Spinner
         android:id="@+id/StatusSpinner"
         android:layout_width="162dp"
         android:layout_height="34dp"
         android:layout_marginStart="124dp"
-        android:layout_marginTop="28dp"
+        android:layout_marginTop="20dp"
         app:layout_constraintStart_toEndOf="@+id/Status"
         app:layout_constraintTop_toBottomOf="@+id/CourseEndDateField"
         tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
@@ -139,7 +139,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="52dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="20dp"
         android:ems="10"
         android:hint="@string/enter_instructor_name"
         android:importantForAutofill="no"
@@ -151,11 +151,11 @@
         tools:ignore="TouchTargetSizeCheck" />
 
     <EditText
-        android:id="@+id/InstuctorPhoneNumberField"
+        android:id="@+id/InstructorPhoneNumberField"
         android:layout_width="170dp"
         android:layout_height="42dp"
         android:layout_marginStart="4dp"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="20dp"
         android:ems="10"
         android:hint="@string/enter_inst_phone_number"
         android:importantForAutofill="no"
@@ -171,7 +171,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="56dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="20dp"
         android:ems="10"
         android:hint="@string/enter_inst_email"
         android:importantForAutofill="no"
@@ -179,29 +179,29 @@
         android:textColorHint="#757575"
         android:textSize="14sp"
         app:layout_constraintStart_toEndOf="@+id/InstructorEmail"
-        app:layout_constraintTop_toBottomOf="@+id/InstuctorPhoneNumberField"
+        app:layout_constraintTop_toBottomOf="@+id/InstructorPhoneNumberField"
         tools:ignore="TouchTargetSizeCheck" />
 
     <Button
         android:id="@+id/CourseSaveButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="76dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="45dp"
         android:text="@string/save"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Notes"
+        app:layout_constraintTop_toBottomOf="@+id/SelectTerm"
         tools:ignore="DuplicateSpeakableTextCheck" />
 
     <Button
         android:id="@+id/CourseCancelButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="48dp"
-        android:layout_marginTop="36dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="45dp"
         android:text="@string/cancel"
-        app:layout_constraintStart_toEndOf="@+id/CourseSaveButton"
-        app:layout_constraintTop_toBottomOf="@+id/NotesField" />
+        app:layout_constraintStart_toEndOf="@+id/CourseDeleteButton"
+        app:layout_constraintTop_toBottomOf="@+id/SelectTerm" />
 
     <TextView
         android:id="@+id/Notes"
@@ -218,7 +218,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="116dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="20dp"
         android:ems="10"
         android:gravity="start|top"
         android:hint="@string/enter_notes"
@@ -229,5 +229,35 @@
         app:layout_constraintStart_toEndOf="@+id/Notes"
         app:layout_constraintTop_toBottomOf="@+id/InstructorEmailField"
         tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+
+    <TextView
+        android:id="@+id/SelectTerm"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="56dp"
+        android:text="@string/select_term"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Notes" />
+
+    <Spinner
+        android:id="@+id/TermSpinner"
+        android:layout_width="166dp"
+        android:layout_height="39dp"
+        android:layout_marginStart="84dp"
+        android:layout_marginTop="20dp"
+        app:layout_constraintStart_toEndOf="@+id/SelectTerm"
+        app:layout_constraintTop_toBottomOf="@+id/NotesField"
+        tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+
+    <Button
+        android:id="@+id/CourseDeleteButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="45dp"
+        android:text="@string/delete"
+        app:layout_constraintStart_toEndOf="@+id/CourseSaveButton"
+        app:layout_constraintTop_toBottomOf="@+id/SelectTerm" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

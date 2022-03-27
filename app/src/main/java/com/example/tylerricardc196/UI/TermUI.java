@@ -62,6 +62,7 @@ public class TermUI extends AppCompatActivity {
         switch (item.getItemId()){
             case R.id.Action_AddTerm:
                 startActivity(new Intent(TermUI.this, AddModifyTerm.class));
+                finish();
                 return true;
         }
     return false;

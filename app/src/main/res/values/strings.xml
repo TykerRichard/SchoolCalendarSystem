@@ -135,5 +135,11 @@
     <string name="delete">Delete</string>
     <string name="term_id">Term ID</string>
     <string name="disabled">Disabled</string>
+    <string name="select_term">Select Term</string>
+    <string-array name="courseStatus">
+        <item>In Progress</item>
+        <item>Dropped</item>
+        <item>Not Started</item>
+   </string-array>
 
 </resources>

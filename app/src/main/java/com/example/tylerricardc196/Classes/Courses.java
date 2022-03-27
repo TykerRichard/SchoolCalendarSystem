@@ -16,13 +16,14 @@ public class Courses {
     private String endDate;
     private String status;
     private String instructorName;
-    private int phoneNumber;
+    private String phoneNumber;
     private String emailAddress;
     private String notes;
+    private int termID;
 
 
 
-    public Courses(int courseID, String courseTitle, String startDate, String endDate, String status, String instructorName, int phoneNumber, String emailAddress, String notes) {
+    public Courses(int courseID, String courseTitle, String startDate, String endDate, String status, String instructorName, String phoneNumber, String emailAddress, String notes, int termID) {
         this.courseID = courseID;
         this.courseTitle = courseTitle;
         this.startDate = startDate;
@@ -32,6 +33,7 @@ public class Courses {
         this.phoneNumber= phoneNumber;
         this.emailAddress = emailAddress;
         this.notes=notes;
+        this.termID=termID;
 
 
     }
@@ -50,6 +52,14 @@ public class Courses {
                 '}';
     }
 
+    public int getTermID() {
+        return termID;
+    }
+
+    public void setTermID(int termID) {
+        this.termID = termID;
+    }
+
     public String getInstructorName() {
         return instructorName;
     }
@@ -58,11 +68,11 @@ public class Courses {
         this.instructorName = instructorName;
     }
 
-    public int getPhoneNumber() {
+    public String getPhoneNumber() {
         return phoneNumber;
     }
 
-    public void setPhoneNumber(int phoneNumber) {
+    public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
     }
 
