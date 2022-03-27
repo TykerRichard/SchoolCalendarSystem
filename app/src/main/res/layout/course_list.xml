@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:id="@+id/CourseNameLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="40dp"
+        android:text="@string/Course_Name"
+        android:textSize="12sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/CourseNameRecycle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/textview"
+        android:textSize="12sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/CourseNameLabel" />
+
+    <TextView
+        android:id="@+id/CourseStartDateLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="42dp"
+        android:layout_marginTop="40dp"
+        android:text="@string/start_date"
+        android:textSize="12sp"
+        app:layout_constraintStart_toEndOf="@+id/CourseUITermLabel"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/CourseEndDateLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="44dp"
+        android:layout_marginTop="40dp"
+        android:text="@string/end_date"
+        android:textSize="12sp"
+        app:layout_constraintStart_toEndOf="@+id/CourseStartDateLabel"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/CourseStartDateRecycle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="55dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/textview"
+        android:textSize="12sp"
+        app:layout_constraintStart_toEndOf="@+id/CourseTermField"
+        app:layout_constraintTop_toBottomOf="@+id/CourseStartDateLabel" />
+
+    <TextView
+        android:id="@+id/CourseEndDateRecycle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="48dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/textview"
+        android:textSize="12sp"
+        app:layout_constraintStart_toEndOf="@+id/CourseStartDateRecycle"
+        app:layout_constraintTop_toBottomOf="@+id/CourseEndDateLabel" />
+
+    <TextView
+        android:id="@+id/CourseUITermLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="40dp"
+        android:text="@string/Term_Name"
+        android:textSize="12sp"
+        app:layout_constraintStart_toEndOf="@+id/CourseNameLabel"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/CourseTermField"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="70dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/textview"
+        android:textSize="12sp"
+        app:layout_constraintStart_toEndOf="@+id/CourseNameRecycle"
+        app:layout_constraintTop_toBottomOf="@+id/CourseUITermLabel" />
+</androidx.constraintlayout.widget.ConstraintLayout>

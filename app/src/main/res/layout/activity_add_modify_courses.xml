@@ -186,22 +186,22 @@
         android:id="@+id/CourseSaveButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="40dp"
-        android:layout_marginTop="45dp"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="28dp"
         android:text="@string/save"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/SelectTerm"
+        app:layout_constraintTop_toBottomOf="@+id/CourseID"
         tools:ignore="DuplicateSpeakableTextCheck" />
 
     <Button
         android:id="@+id/CourseCancelButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="45dp"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="28dp"
         android:text="@string/cancel"
         app:layout_constraintStart_toEndOf="@+id/CourseDeleteButton"
-        app:layout_constraintTop_toBottomOf="@+id/SelectTerm" />
+        app:layout_constraintTop_toBottomOf="@+id/CourseID" />
 
     <TextView
         android:id="@+id/Notes"
@@ -254,10 +254,30 @@
         android:id="@+id/CourseDeleteButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="45dp"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="28dp"
         android:text="@string/delete"
         app:layout_constraintStart_toEndOf="@+id/CourseSaveButton"
+        app:layout_constraintTop_toBottomOf="@+id/CourseID" />
+
+    <TextView
+        android:id="@+id/CourseID"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="20dp"
+        android:text="@string/course_id"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/SelectTerm" />
+
+    <TextView
+        android:id="@+id/CourseIDField"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="88dp"
+        android:layout_marginTop="24dp"
+        android:text="@string/disabled"
+        app:layout_constraintStart_toEndOf="@+id/CourseID"
+        app:layout_constraintTop_toBottomOf="@+id/TermSpinner" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

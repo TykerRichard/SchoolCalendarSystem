@@ -38,6 +38,8 @@ public class TermRecyclerAdapter extends RecyclerView.Adapter<TermRecyclerAdapte
             context=view.getContext();
             termName = view.findViewById(R.id.TermName);
             termTextView = itemView.findViewById(R.id.TermName);
+
+
             itemView.setOnClickListener(new View.OnClickListener() {
 
                 @Override

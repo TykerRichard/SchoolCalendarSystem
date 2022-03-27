@@ -5,15 +5,26 @@ import static com.example.tylerricardc196.R.*;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.DefaultItemAnimator;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.example.tylerricardc196.Classes.Courses;
+import com.example.tylerricardc196.Classes.Terms;
+import com.example.tylerricardc196.Database.Repository;
 import com.example.tylerricardc196.R;
 
+import java.util.List;
+
 public class CoursesUI extends AppCompatActivity {
+    List<Courses> courseList;
+    RecyclerView recyclerView;
+    List <Terms> termList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,7 +33,25 @@ public class CoursesUI extends AppCompatActivity {
 
         ActionBar actionBar = getSupportActionBar();
         actionBar.setTitle("Courses");
+
+        Repository repository=new Repository(getApplication());
+        recyclerView=findViewById(id.CourseView);
+        courseList=repository.getAllCourses();
+        termList=repository.getAllTerms();
+        setAdapter();
+
+
     }
+
+    private void setAdapter() {
+        CourseRecyclerAdapter adapter = new CourseRecyclerAdapter(courseList,termList);
+        RecyclerView.LayoutManager layout= new LinearLayoutManager(getApplicationContext());
+        recyclerView.setLayoutManager(layout);
+        recyclerView.setItemAnimator(new DefaultItemAnimator());
+        recyclerView.setAdapter(adapter);
+    }
+
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu){
 

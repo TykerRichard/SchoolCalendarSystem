@@ -4,4 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".UI.CoursesUI"/>
+    tools:context=".UI.CoursesUI">
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/CourseView"
+        android:layout_width="378dp"
+        android:layout_height="624dp"
+        android:layout_marginTop="32dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>

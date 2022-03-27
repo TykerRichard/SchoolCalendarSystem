@@ -10,9 +10,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.TylerRicardC196">
         <activity
+            android:name=".UI.CourseRecyclerAdapter"
+            android:exported="false" />
+        <activity
             android:name=".UI.AddModifyCourses"
             android:exported="false"
-            android:label="Add / Modify Course"/>
+            android:label="Add / Modify Course" />
         <activity
             android:name=".UI.AddModifyTerm"
             android:exported="false"

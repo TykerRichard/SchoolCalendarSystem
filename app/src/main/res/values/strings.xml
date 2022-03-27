@@ -136,10 +136,13 @@
     <string name="term_id">Term ID</string>
     <string name="disabled">Disabled</string>
     <string name="select_term">Select Term</string>
+    <string name="textview">TextView</string>
+    <string name="course_id">Course ID:</string>
+
     <string-array name="courseStatus">
         <item>In Progress</item>
         <item>Dropped</item>
         <item>Not Started</item>
-   </string-array>
+    </string-array>
 
 </resources>
