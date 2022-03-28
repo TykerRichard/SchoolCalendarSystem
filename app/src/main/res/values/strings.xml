@@ -138,6 +138,9 @@
     <string name="select_term">Select Term</string>
     <string name="textview">TextView</string>
     <string name="course_id">Course ID:</string>
+    <string name="add_assignment">Add Assignment</string>
+    <string name="assignment_details">Assignment Details</string>
+    <string name="string_assignment_details" />
 
     <string-array name="courseStatus">
         <item>In Progress</item>

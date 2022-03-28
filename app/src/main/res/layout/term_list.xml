@@ -3,7 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:minHeight="600sp">
 
     <TextView
         android:id="@+id/TermLabel"
@@ -16,6 +17,7 @@
         android:text="@string/term"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.132"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0" />
@@ -24,9 +26,60 @@
         android:id="@+id/TermName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:text="TextView"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="20dp"
+        android:text="@string/textview"
+        android:textStyle="bold"
         app:layout_constraintStart_toEndOf="@+id/TermLabel"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/TermStartDate"
+        android:layout_width="112dp"
+        android:layout_height="20dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/term_start_date"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.244"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/TermName" />
+
+    <TextView
+        android:id="@+id/TermEndDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="@string/term_end_date"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.228"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/TermStartDate" />
+
+    <TextView
+        android:id="@+id/TermStateDateField"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:layout_marginEnd="30dp"
+        android:text="@string/textview"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.097"
+        app:layout_constraintStart_toEndOf="@+id/TermStartDate"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.084" />
+
+    <TextView
+        android:id="@+id/TermEndDateField"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="19dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/textview"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.109"
+        app:layout_constraintStart_toEndOf="@+id/TermEndDate"
+        app:layout_constraintTop_toBottomOf="@+id/TermStateDateField"
+        app:layout_constraintVertical_bias="0.0" />
 </androidx.constraintlayout.widget.ConstraintLayout>

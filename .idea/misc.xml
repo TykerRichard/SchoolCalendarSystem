@@ -3,12 +3,7 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Project/app/src/main/res/layout/activity_add_modify_courses.xml" value="0.36666666666666664" />
-        <entry key="..\:/Project/app/src/main/res/layout/activity_course_recycler_adapter.xml" value="0.36666666666666664" />
-        <entry key="..\:/Project/app/src/main/res/layout/activity_courses.xml" value="0.36666666666666664" />
-        <entry key="..\:/Project/app/src/main/res/layout/activity_term_ui.xml" value="0.36666666666666664" />
-        <entry key="..\:/Project/app/src/main/res/layout/course_list.xml" value="0.36666666666666664" />
-        <entry key="..\:/Project/app/src/main/res/layout/term_list.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/tyler/AndroidStudioProjects/TylerRicardC196/app/src/main/res/layout/activity_add_modify_assignments.xml" value="0.21529888551165147" />
         <entry key="..\:/Users/tyler/AndroidStudioProjects/TylerRicardC196/app/src/main/res/layout/activity_add_modify_courses.xml" value="0.3828571428571429" />
         <entry key="..\:/Users/tyler/AndroidStudioProjects/TylerRicardC196/app/src/main/res/layout/activity_add_modify_term.xml" value="0.42857142857142855" />
         <entry key="..\:/Users/tyler/AndroidStudioProjects/TylerRicardC196/app/src/main/res/layout/activity_assignments.xml" value="0.2390625" />
@@ -21,7 +16,8 @@
         <entry key="..\:/Users/tyler/AndroidStudioProjects/TylerRicardC196/app/src/main/res/layout/activity_terms.xml" value="0.38813405797101447" />
         <entry key="..\:/Users/tyler/AndroidStudioProjects/TylerRicardC196/app/src/main/res/layout/content_scrolling.xml" value="0.3625" />
         <entry key="..\:/Users/tyler/AndroidStudioProjects/TylerRicardC196/app/src/main/res/layout/popup_menu.xml" value="0.38813405797101447" />
-        <entry key="..\:/Users/tyler/AndroidStudioProjects/TylerRicardC196/app/src/main/res/layout/term_list.xml" value="0.3625" />
+        <entry key="..\:/Users/tyler/AndroidStudioProjects/TylerRicardC196/app/src/main/res/layout/term_list.xml" value="0.3828571428571429" />
+        <entry key="..\:/Users/tyler/AndroidStudioProjects/TylerRicardC196/app/src/main/res/menu/menu_assignments_ui.xml" value="0.4427083333333333" />
         <entry key="..\:/Users/tyler/AndroidStudioProjects/TylerRicardC196/app/src/main/res/menu/menu_course_ui.xml" value="0.3625" />
         <entry key="..\:/Users/tyler/AndroidStudioProjects/TylerRicardC196/app/src/main/res/menu/menu_scrolling.xml" value="0.4427083333333333" />
         <entry key="..\:/Users/tyler/AndroidStudioProjects/TylerRicardC196/app/src/main/res/menu/menu_term_u_i.xml" value="0.2390625" />

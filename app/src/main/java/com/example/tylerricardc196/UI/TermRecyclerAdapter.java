@@ -32,12 +32,17 @@ public class TermRecyclerAdapter extends RecyclerView.Adapter<TermRecyclerAdapte
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
         private TextView termName;
+        private TextView termStartDate;
+        private TextView termEndDate;
 
         public MyViewHolder(View view) {
             super(view);
             context=view.getContext();
             termName = view.findViewById(R.id.TermName);
+            termStartDate=view.findViewById(R.id.TermStateDateField);
+            termEndDate=view.findViewById(R.id.TermEndDateField);
             termTextView = itemView.findViewById(R.id.TermName);
+
 
 
             itemView.setOnClickListener(new View.OnClickListener() {
@@ -75,8 +80,11 @@ public class TermRecyclerAdapter extends RecyclerView.Adapter<TermRecyclerAdapte
         @Override
         public void onBindViewHolder(@NonNull TermRecyclerAdapter.MyViewHolder holder, int position) {
             String termName = allTerms.get(position).getTermName();
+            String termStart=allTerms.get(position).getStartDate();
+            String termEnd= allTerms.get(position).getEndDate();
             holder.termName.setText(termName);
-
+            holder.termStartDate.setText(termStart);
+            holder.termEndDate.setText(termEnd);
         }
 
         @Override
