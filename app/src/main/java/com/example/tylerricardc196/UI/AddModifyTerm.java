@@ -44,7 +44,7 @@ public class AddModifyTerm extends AppCompatActivity {
 
         final Button save = findViewById(R.id.SaveButton);
         final Button cancel = findViewById(R.id.CancelButton);
-        final Button delete=findViewById(R.id.TermDeleteButton);
+        final Button delete = findViewById(R.id.TermDeleteButton);
         EditText startDateFld = findViewById(R.id.StartDateField);
         startDateFld.setFocusableInTouchMode(false);
         EditText endDateFld = findViewById(R.id.EndDateField);
@@ -52,17 +52,17 @@ public class AddModifyTerm extends AppCompatActivity {
         EditText termNameFld = findViewById(R.id.TermNameField);
         TextView termIDFld = findViewById(R.id.TermIDField);
         Repository repository = new Repository(getApplication());
-        try{
-            Intent intent=getIntent();
-            String termName= intent.getStringExtra("TermNameField");
-            String startDate=intent.getStringExtra("StartDateField");
+        try {
+            Intent intent = getIntent();
+            String termName = intent.getStringExtra("TermNameField");
+            String startDate = intent.getStringExtra("StartDateField");
             String endDate = intent.getStringExtra("EndDateField");
-            int termID=intent.getIntExtra("TermID",0);
+            int termID = intent.getIntExtra("TermID", 0);
 
             termNameFld.setText(termName);
             startDateFld.setText(startDate);
             endDateFld.setText(endDate);
-            if(termID!=0){
+            if (termID != 0) {
                 termIDFld.setText(Integer.toString(termID));
             }
         } catch (Exception e) {
@@ -75,7 +75,7 @@ public class AddModifyTerm extends AppCompatActivity {
                 String termName = termNameFld.getText().toString();
                 String startDate = startDateFld.getText().toString();
                 String endDate = endDateFld.getText().toString();
-                String termIDString= termIDFld.getText().toString();
+                String termIDString = termIDFld.getText().toString();
 
 
                 boolean error = false;
@@ -85,26 +85,26 @@ public class AddModifyTerm extends AppCompatActivity {
                     termNameFld.setError("cannot be blank");
                     error = true;
                 }
-                if(startDate.isEmpty()){
+                if (startDate.isEmpty()) {
                     startDateFld.setError("Cannot be blank");
-                    error=true;
+                    error = true;
                 }
-                if(endDate.isEmpty()){
+                if (endDate.isEmpty()) {
                     endDateFld.setError("Cannot be blank");
-                    error=true;
+                    error = true;
                 }
 
                 if (!error && termIDString.equalsIgnoreCase("Disabled")) {
-                    int termID= repository.NextTermID();
+                    int termID = repository.NextTermID();
                     Terms newTerm = new Terms(termID, termName, startDate, endDate);
                     repository.insert(newTerm);
-                    Intent intent=new Intent(AddModifyTerm.this,TermUI.class);
+                    Intent intent = new Intent(AddModifyTerm.this, TermUI.class);
                     startActivity(intent);
                     finish();
-                }else if(!error){
-                    Terms updateTerm=new Terms(Integer.parseInt(termIDString),termName,startDate,endDate);
+                } else if (!error) {
+                    Terms updateTerm = new Terms(Integer.parseInt(termIDString), termName, startDate, endDate);
                     repository.update(updateTerm);
-                    Intent intent=new Intent(AddModifyTerm.this,TermUI.class);
+                    Intent intent = new Intent(AddModifyTerm.this, TermUI.class);
                     startActivity(intent);
                     finish();
                 }
@@ -114,19 +114,19 @@ public class AddModifyTerm extends AppCompatActivity {
 
         cancel.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                Intent intent=new Intent(AddModifyTerm.this,TermUI.class);
+                Intent intent = new Intent(AddModifyTerm.this, TermUI.class);
                 startActivity(intent);
                 finish();
 
             }
         });
 
-        delete.setOnClickListener(new View.OnClickListener(){
-            public void onClick(View v){
-                Context context=v.getContext();
-                List<Terms> allTerms=new ArrayList<Terms>();
-                allTerms=repository.getAllTerms();
-                if(termIDFld.getText().toString().equalsIgnoreCase("Disabled")){
+        delete.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                Context context = v.getContext();
+                List<Terms> allTerms = new ArrayList<Terms>();
+                allTerms = repository.getAllTerms();
+                if (termIDFld.getText().toString().equalsIgnoreCase("Disabled")) {
                     AlertDialog.Builder builder = new AlertDialog.Builder(context);
                     builder.setMessage("No existing term selected! Return to term menu and select " +
                             " a course to delete ");
@@ -138,12 +138,12 @@ public class AddModifyTerm extends AppCompatActivity {
                         }
 
                     });
-                    AlertDialog alert=builder.create();
+                    AlertDialog alert = builder.create();
                     alert.show();
 
-                }else{
-                    for(Terms deleteTerm : allTerms ){
-                        if (deleteTerm.getTermID()==Integer.parseInt(termIDFld.getText().toString())){
+                } else {
+                    for (Terms deleteTerm : allTerms) {
+                        if (deleteTerm.getTermID() == Integer.parseInt(termIDFld.getText().toString())) {
 
                             AlertDialog.Builder builder = new AlertDialog.Builder(context);
                             builder.setMessage("Are you sure you want to delete this term? All Courses assigned" +
@@ -155,14 +155,14 @@ public class AddModifyTerm extends AppCompatActivity {
                                     new DialogInterface.OnClickListener() {
                                         public void onClick(DialogInterface dialog, int id) {
                                             repository.delete(deleteTerm);
-                                            List <Courses> allCourses=repository.getAllCourses();
-                                            for(Courses currentCourse : allCourses){
-                                                if(currentCourse.getTermID()==deleteTerm.getTermID()){
+                                            List<Courses> allCourses = repository.getAllCourses();
+                                            for (Courses currentCourse : allCourses) {
+                                                if (currentCourse.getTermID() == deleteTerm.getTermID()) {
                                                     currentCourse.setCourseID(0);
                                                 }
                                             }
                                             dialog.cancel();
-                                            Intent intent=new Intent(AddModifyTerm.this,TermUI.class);
+                                            Intent intent = new Intent(AddModifyTerm.this, TermUI.class);
                                             startActivity(intent);
                                             finish();
                                         }
@@ -186,28 +186,28 @@ public class AddModifyTerm extends AppCompatActivity {
         });
 
 
-        startDateFld.setOnClickListener(new View.OnClickListener(){
-            public void onClick(View v){
-                datePicker(startDateFld,myCalendar);
+        startDateFld.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                datePicker(startDateFld, myCalendar);
             }
         });
-        endDateFld.setOnClickListener(new View.OnClickListener(){
-            public void onClick(View v){
-                datePicker(endDateFld,myCalendar);
+        endDateFld.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                datePicker(endDateFld, myCalendar);
             }
         });
 
 
     }
 
-    private void datePicker(EditText editText,Calendar calendar){
+    private void datePicker(EditText editText, Calendar calendar) {
         DatePickerDialog.OnDateSetListener date = new DatePickerDialog.OnDateSetListener() {
             @Override
             public void onDateSet(DatePicker view, int year, int month, int day) {
                 calendar.set(Calendar.YEAR, year);
                 calendar.set(Calendar.MONTH, month);
                 calendar.set(Calendar.DAY_OF_MONTH, day);
-                updateLabel(editText,calendar);
+                updateLabel(editText, calendar);
             }
         };
 
@@ -219,6 +219,7 @@ public class AddModifyTerm extends AppCompatActivity {
         });
 
     }
+
     private void updateLabel(EditText date, Calendar calendar) {
         String myFormat = "MM/dd/yy";
         SimpleDateFormat dateFormat = new SimpleDateFormat(myFormat, Locale.US);

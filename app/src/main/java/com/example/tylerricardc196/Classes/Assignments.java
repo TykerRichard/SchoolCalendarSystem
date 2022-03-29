@@ -1,4 +1,5 @@
 package com.example.tylerricardc196.Classes;
+
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
@@ -16,13 +17,13 @@ public class Assignments {
     private int assignedCourse;
 
 
-    public Assignments(int assignmentID, String assignmentName, String type, String endDate, String startDate,int assignedCourse) {
+    public Assignments(int assignmentID, String assignmentName, String type, String endDate, String startDate, int assignedCourse) {
         this.assignmentID = assignmentID;
         this.assignmentName = assignmentName;
         this.type = type;
         this.endDate = endDate;
         this.startDate = startDate;
-        this.assignedCourse=assignedCourse;
+        this.assignedCourse = assignedCourse;
     }
 
     @Override

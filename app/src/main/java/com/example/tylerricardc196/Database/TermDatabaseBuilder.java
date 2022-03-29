@@ -14,25 +14,27 @@ import com.example.tylerricardc196.DAO.AssignmentDAO;
 import com.example.tylerricardc196.DAO.CourseDAO;
 import com.example.tylerricardc196.DAO.TermDAO;
 
-@Database(entities = {Assignments.class, Courses.class, Terms.class }, version = 10,exportSchema = false)
+@Database(entities = {Assignments.class, Courses.class, Terms.class}, version = 10, exportSchema = false)
 public abstract class TermDatabaseBuilder extends RoomDatabase {
     public abstract AssignmentDAO assignmentDAO();
+
     public abstract CourseDAO courseDAO();
+
     public abstract TermDAO termDAO();
 
     private static volatile TermDatabaseBuilder INSTANCE;
 
-    static TermDatabaseBuilder getDatabase(final Context context){
-        if(INSTANCE==null){
-            synchronized (TermDatabaseBuilder.class){
-                if(INSTANCE == null){
-                    INSTANCE= Room.databaseBuilder(context.getApplicationContext(), TermDatabaseBuilder.class, "prodTermDatabase.db")
+    static TermDatabaseBuilder getDatabase(final Context context) {
+        if (INSTANCE == null) {
+            synchronized (TermDatabaseBuilder.class) {
+                if (INSTANCE == null) {
+                    INSTANCE = Room.databaseBuilder(context.getApplicationContext(), TermDatabaseBuilder.class, "prodTermDatabase.db")
                             .fallbackToDestructiveMigration()
                             .build();
                 }
             }
         }
-       return INSTANCE;
+        return INSTANCE;
     }
 
 }

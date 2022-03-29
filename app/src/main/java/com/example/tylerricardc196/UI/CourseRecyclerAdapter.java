@@ -21,50 +21,50 @@ import com.example.tylerricardc196.R;
 import java.util.List;
 
 public class CourseRecyclerAdapter extends RecyclerView.Adapter<CourseRecyclerAdapter.MyViewHolder> {
-    private List<Courses> allCourses;
-    private int selectedPosition=1;
+    private final List<Courses> allCourses;
+    private int selectedPosition = 1;
     private TextView courseTextView;
     private Context context;
-    private List<Terms> allTerms;
+    private final List<Terms> allTerms;
 
-    public CourseRecyclerAdapter(List<Courses> course,List<Terms> terms) {
+    public CourseRecyclerAdapter(List<Courses> course, List<Terms> terms) {
         this.allCourses = course;
         this.allTerms = terms;
     }
 
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
-        private TextView courseName;
-        private TextView courseStartDate;
-        private TextView courseEndDate;
-        private TextView courseTermName;
+        private final TextView courseName;
+        private final TextView courseStartDate;
+        private final TextView courseEndDate;
+        private final TextView courseTermName;
 
         public MyViewHolder(View view) {
             super(view);
-            context=view.getContext();
+            context = view.getContext();
             courseName = view.findViewById(R.id.CourseNameRecycle);
-            courseStartDate=view.findViewById(R.id.CourseStartDateRecycle);
-            courseEndDate=view.findViewById(R.id.CourseEndDateRecycle);
-            courseTextView=itemView.findViewById(R.id.CourseView);
-            courseTermName=view.findViewById(R.id.CourseTermField);
+            courseStartDate = view.findViewById(R.id.CourseStartDateRecycle);
+            courseEndDate = view.findViewById(R.id.CourseEndDateRecycle);
+            courseTextView = itemView.findViewById(R.id.CourseView);
+            courseTermName = view.findViewById(R.id.CourseTermField);
 
             itemView.setOnClickListener(new View.OnClickListener() {
 
                 @Override
                 public void onClick(View view) {
-                    selectedPosition=getAdapterPosition();
-                    final Courses current=allCourses.get(selectedPosition);
-                    Intent intent=new Intent(context,AddModifyCourses.class);
+                    selectedPosition = getAdapterPosition();
+                    final Courses current = allCourses.get(selectedPosition);
+                    Intent intent = new Intent(context, AddModifyCourses.class);
                     intent.putExtra("TermID", current.getTermID());
-                    intent.putExtra("CourseID",current.getCourseID());
-                    intent.putExtra("CourseTitle",current.getCourseTitle());
+                    intent.putExtra("CourseID", current.getCourseID());
+                    intent.putExtra("CourseTitle", current.getCourseTitle());
                     intent.putExtra("CourseStart", current.getStartDate());
                     intent.putExtra("CourseEnd", current.getEndDate());
-                    intent.putExtra("Status",current.getStatus());
+                    intent.putExtra("Status", current.getStatus());
                     intent.putExtra("InstructorName", current.getInstructorName());
                     intent.putExtra("InstructorNumber", current.getPhoneNumber());
                     intent.putExtra("Email", current.getEmailAddress());
-                    intent.putExtra("Notes",current.getNotes());
+                    intent.putExtra("Notes", current.getNotes());
                     context.startActivity(intent);
 
 
@@ -75,7 +75,6 @@ public class CourseRecyclerAdapter extends RecyclerView.Adapter<CourseRecyclerAd
 
         }
     }
-
 
 
     @NonNull
@@ -89,20 +88,20 @@ public class CourseRecyclerAdapter extends RecyclerView.Adapter<CourseRecyclerAd
     @Override
     public void onBindViewHolder(@NonNull CourseRecyclerAdapter.MyViewHolder holder, int position) {
         String courseTitle = allCourses.get(position).getCourseTitle();
-        String courseStart=allCourses.get(position).getStartDate();
-        String courseEnd=allCourses.get(position).getEndDate();
-        int termID=allCourses.get(position).getTermID();
+        String courseStart = allCourses.get(position).getStartDate();
+        String courseEnd = allCourses.get(position).getEndDate();
+        int termID = allCourses.get(position).getTermID();
         holder.courseName.setText(courseTitle);
         holder.courseStartDate.setText(courseStart);
         holder.courseEndDate.setText(courseEnd);
 
-        for(Terms currentTerm : allTerms){
-            if(currentTerm.getTermID()==termID){
+        for (Terms currentTerm : allTerms) {
+            if (currentTerm.getTermID() == termID) {
                 holder.courseTermName.setText(currentTerm.getTermName());
             }
 
         }
-        if(holder.courseTermName.getText().toString().equalsIgnoreCase("TextView")){
+        if (holder.courseTermName.getText().toString().equalsIgnoreCase("TextView")) {
             holder.courseTermName.setText("Unassigned");
         }
     }
@@ -111,8 +110,6 @@ public class CourseRecyclerAdapter extends RecyclerView.Adapter<CourseRecyclerAd
     public int getItemCount() {
         return allCourses.size();
     }
-
-
 
 
 }

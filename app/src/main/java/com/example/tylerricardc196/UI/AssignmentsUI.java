@@ -26,16 +26,16 @@ public class AssignmentsUI extends AppCompatActivity {
 
 
     @Override
-    public boolean onCreateOptionsMenu(Menu menu){
+    public boolean onCreateOptionsMenu(Menu menu) {
 
-        getMenuInflater().inflate(R.menu.menu_assignments_ui,menu);
+        getMenuInflater().inflate(R.menu.menu_assignments_ui, menu);
         return super.onCreateOptionsMenu(menu);
     }
 
 
     @Override
-    public boolean onOptionsItemSelected(@NonNull MenuItem item){
-        switch (item.getItemId()){
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()) {
             case R.id.AddAssignmnet:
                 startActivity(new Intent(AssignmentsUI.this, AddModifyAssignments.class));
                 finish();
@@ -43,7 +43,6 @@ public class AssignmentsUI extends AppCompatActivity {
         }
         return false;
     }
-
 
 
 }

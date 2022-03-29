@@ -14,9 +14,9 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
 public class Repository {
-    private AssignmentDAO tAssignmentDAO;
-    private CourseDAO tCourseDAO;
-    private TermDAO tTermDAO;
+    private final AssignmentDAO tAssignmentDAO;
+    private final CourseDAO tCourseDAO;
+    private final TermDAO tTermDAO;
     private List<Assignments> tAllAssignments;
     private List<Courses> tAllCourses;
     private List<Terms> tAllTerms;
@@ -24,7 +24,7 @@ public class Repository {
     private int nextTermID;
     private int nextAssignmentID;
     private int unassignedCrouseID;
-    private static int NUMBER_OF_THREADS = 4;
+    private static final int NUMBER_OF_THREADS = 4;
     static final ExecutorService databaseExecutor = Executors.newFixedThreadPool(NUMBER_OF_THREADS);
 
     public Repository(Application application) {
@@ -49,48 +49,48 @@ public class Repository {
 
     }
 
-    public int NextCourseID(){
-        databaseExecutor.execute(()->{
-            nextCourseID=tCourseDAO.getNextCourseID();
-            });
-        try{
+    public int NextCourseID() {
+        databaseExecutor.execute(() -> {
+            nextCourseID = tCourseDAO.getNextCourseID();
+        });
+        try {
             Thread.sleep(1000);
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return nextCourseID+1;
+        return nextCourseID + 1;
     }
 
 
-    public void insert(Courses course){
+    public void insert(Courses course) {
 
-        databaseExecutor.execute(()->{
+        databaseExecutor.execute(() -> {
             tCourseDAO.insert(course);
         });
 
-        try{
+        try {
             Thread.sleep(1000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
     }
 
-    public void update(Courses course){
-        databaseExecutor.execute(()->{
+    public void update(Courses course) {
+        databaseExecutor.execute(() -> {
             tCourseDAO.update(course);
         });
-        try{
+        try {
             Thread.sleep(1000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
     }
 
-    public void delete(Courses course){
-        databaseExecutor.execute(()->{
-          tCourseDAO.delete(course);
+    public void delete(Courses course) {
+        databaseExecutor.execute(() -> {
+            tCourseDAO.delete(course);
         });
-        try{
+        try {
             Thread.sleep(1000);
         } catch (InterruptedException e) {
             e.printStackTrace();
@@ -111,53 +111,54 @@ public class Repository {
 
     }
 
-    public int NextTermID(){
-        databaseExecutor.execute(()->{
-            nextTermID=tTermDAO.getNextTermID();
+    public int NextTermID() {
+        databaseExecutor.execute(() -> {
+            nextTermID = tTermDAO.getNextTermID();
         });
-        try{
+        try {
             Thread.sleep(1000);
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return nextTermID+1;
+        return nextTermID + 1;
     }
 
 
-    public void insert(Terms term){
+    public void insert(Terms term) {
 
-        databaseExecutor.execute(()->{
+        databaseExecutor.execute(() -> {
             tTermDAO.insert(term);
         });
 
-        try{
+        try {
             Thread.sleep(1000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
     }
 
-    public void update(Terms term){
-        databaseExecutor.execute(()->{
+    public void update(Terms term) {
+        databaseExecutor.execute(() -> {
             tTermDAO.update(term);
         });
-        try{
+        try {
             Thread.sleep(1000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
     }
 
-    public void delete(Terms term){
-        databaseExecutor.execute(()->{
+    public void delete(Terms term) {
+        databaseExecutor.execute(() -> {
             tTermDAO.delete(term);
         });
-        try{
+        try {
             Thread.sleep(1000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
     }
+
     public List<Assignments> getAllAssignments() {
         databaseExecutor.execute(() -> {
             tAllAssignments = tAssignmentDAO.getAllAssignments();
@@ -171,48 +172,49 @@ public class Repository {
         return tAllAssignments;
 
     }
-    public int NextAssignmentID(){
-        databaseExecutor.execute(()->{
-            nextAssignmentID=tAssignmentDAO.getNextAssignmentID();
+
+    public int NextAssignmentID() {
+        databaseExecutor.execute(() -> {
+            nextAssignmentID = tAssignmentDAO.getNextAssignmentID();
         });
-        try{
+        try {
             Thread.sleep(1000);
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return nextAssignmentID+1;
+        return nextAssignmentID + 1;
     }
 
 
-    public void insert(Assignments assignment){
+    public void insert(Assignments assignment) {
 
-        databaseExecutor.execute(()->{
+        databaseExecutor.execute(() -> {
             tAssignmentDAO.insert(assignment);
         });
 
-        try{
+        try {
             Thread.sleep(1000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
     }
 
-    public void update(Assignments assignment){
-        databaseExecutor.execute(()->{
+    public void update(Assignments assignment) {
+        databaseExecutor.execute(() -> {
             tAssignmentDAO.update(assignment);
         });
-        try{
+        try {
             Thread.sleep(1000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
     }
 
-    public void delete(Assignments assignment){
-        databaseExecutor.execute(()->{
+    public void delete(Assignments assignment) {
+        databaseExecutor.execute(() -> {
             tAssignmentDAO.delete(assignment);
         });
-        try{
+        try {
             Thread.sleep(1000);
         } catch (InterruptedException e) {
             e.printStackTrace();

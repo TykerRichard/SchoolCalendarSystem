@@ -1,4 +1,5 @@
 package com.example.tylerricardc196.Classes;
+
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
@@ -22,7 +23,6 @@ public class Courses {
     private int termID;
 
 
-
     public Courses(int courseID, String courseTitle, String startDate, String endDate, String status, String instructorName, String phoneNumber, String emailAddress, String notes, int termID) {
         this.courseID = courseID;
         this.courseTitle = courseTitle;
@@ -30,10 +30,10 @@ public class Courses {
         this.endDate = endDate;
         this.status = status;
         this.instructorName = instructorName;
-        this.phoneNumber= phoneNumber;
+        this.phoneNumber = phoneNumber;
         this.emailAddress = emailAddress;
-        this.notes=notes;
-        this.termID=termID;
+        this.notes = notes;
+        this.termID = termID;
 
 
     }

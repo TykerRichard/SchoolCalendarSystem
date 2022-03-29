@@ -1,4 +1,5 @@
 package com.example.tylerricardc196.Classes;
+
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
@@ -15,7 +16,7 @@ public class Terms {
 
     public Terms(int termID, String termName, String startDate, String endDate) {
         this.termID = termID;
-        this.termName=termName;
+        this.termName = termName;
         this.startDate = startDate;
         this.endDate = endDate;
     }

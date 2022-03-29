@@ -21,7 +21,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Repository repository=new Repository(getApplication());
+        Repository repository = new Repository(getApplication());
 
     }
 
@@ -33,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
         mainPopUpMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
             @Override
             public boolean onMenuItemClick(MenuItem item) {
-                String selection= (String) item.getTitle();
+                String selection = (String) item.getTitle();
                 switch (selection) {
                     case "Assignments":
                         startActivity(new Intent(MainActivity.this, AssignmentsUI.class));

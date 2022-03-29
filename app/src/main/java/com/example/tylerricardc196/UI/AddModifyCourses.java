@@ -31,17 +31,13 @@ import java.util.List;
 import java.util.Locale;
 
 public class AddModifyCourses extends AppCompatActivity {
-    private Repository repository=new Repository(getApplication());
-    private List<Terms> allTerms=repository.getAllTerms();
-    private List<Courses> allCourses=repository.getAllCourses();
+    private final Repository repository = new Repository(getApplication());
+    private final List<Terms> allTerms = repository.getAllTerms();
+    private final List<Courses> allCourses = repository.getAllCourses();
     final Calendar myCalendar = Calendar.getInstance();
 
 
-
-
     public AddModifyCourses() {
-
-
 
 
     }
@@ -73,8 +69,8 @@ public class AddModifyCourses extends AppCompatActivity {
         EditText instructorEmailFld = findViewById(R.id.InstructorEmailField);
         EditText notesFld = findViewById(R.id.NotesField);
         TextView courseIDFld = findViewById(R.id.CourseIDField);
-        Button cancel=findViewById(R.id.CourseCancelButton);
-        Button delete=findViewById(R.id.CourseDeleteButton);
+        Button cancel = findViewById(R.id.CourseCancelButton);
+        Button delete = findViewById(R.id.CourseDeleteButton);
 
         ArrayAdapter<CharSequence> statusAdapter = ArrayAdapter.createFromResource(this,
                 R.array.courseStatus, android.R.layout.simple_spinner_item);
@@ -193,7 +189,7 @@ public class AddModifyCourses extends AppCompatActivity {
         cancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent=new Intent(AddModifyCourses.this,CoursesUI.class);
+                Intent intent = new Intent(AddModifyCourses.this, CoursesUI.class);
                 startActivity(intent);
                 finish();
             }
@@ -202,11 +198,11 @@ public class AddModifyCourses extends AppCompatActivity {
         delete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Context context=view.getContext();
+                Context context = view.getContext();
                 AlertDialog.Builder builder = new AlertDialog.Builder(context);
 
 
-                if(courseIDFld.getText().toString().equalsIgnoreCase("disabled")){
+                if (courseIDFld.getText().toString().equalsIgnoreCase("disabled")) {
                     builder.setMessage("No existing course selected! Return to course menu" +
                             " and select a course to delete");
                     builder.setCancelable(true);
@@ -216,16 +212,16 @@ public class AddModifyCourses extends AppCompatActivity {
                             dialogInterface.cancel();
                         }
                     });
-                }else{
-                    for(Courses current : allCourses){
-                        if(current.getCourseID()==Integer.parseInt(courseIDFld.getText().toString())){
+                } else {
+                    for (Courses current : allCourses) {
+                        if (current.getCourseID() == Integer.parseInt(courseIDFld.getText().toString())) {
                             builder.setMessage("Are you sure you want to delete this course?");
                             builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                                 @Override
                                 public void onClick(DialogInterface dialogInterface, int i) {
                                     repository.delete(current);
                                     dialogInterface.cancel();
-                                    Intent intent=new Intent(AddModifyCourses.this,CoursesUI.class);
+                                    Intent intent = new Intent(AddModifyCourses.this, CoursesUI.class);
                                     startActivity(intent);
                                     finish();
                                 }
@@ -240,14 +236,10 @@ public class AddModifyCourses extends AppCompatActivity {
                         }
                     }
                 }
-                AlertDialog alert=builder.create();
+                AlertDialog alert = builder.create();
                 alert.show();
             }
         });
-
-
-
-
 
 
         startDate.setOnClickListener(new View.OnClickListener() {
@@ -267,14 +259,15 @@ public class AddModifyCourses extends AppCompatActivity {
         });
 
     }
-    private void datePicker(EditText editText, Calendar calendar){
+
+    private void datePicker(EditText editText, Calendar calendar) {
         DatePickerDialog.OnDateSetListener date = new DatePickerDialog.OnDateSetListener() {
             @Override
             public void onDateSet(DatePicker view, int year, int month, int day) {
                 calendar.set(Calendar.YEAR, year);
                 calendar.set(Calendar.MONTH, month);
                 calendar.set(Calendar.DAY_OF_MONTH, day);
-                updateLabel(editText,calendar);
+                updateLabel(editText, calendar);
             }
         };
 
@@ -286,6 +279,7 @@ public class AddModifyCourses extends AppCompatActivity {
         });
 
     }
+
     private void updateLabel(EditText date, Calendar calendar) {
         String myFormat = "MM/dd/yy";
         SimpleDateFormat dateFormat = new SimpleDateFormat(myFormat, Locale.US);
