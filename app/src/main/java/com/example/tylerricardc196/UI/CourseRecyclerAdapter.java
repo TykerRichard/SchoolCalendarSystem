@@ -22,7 +22,7 @@ import java.util.List;
 
 public class CourseRecyclerAdapter extends RecyclerView.Adapter<CourseRecyclerAdapter.MyViewHolder> {
     private List<Courses> allCourses;
-    private int selectedPosition=-1;
+    private int selectedPosition=1;
     private TextView courseTextView;
     private Context context;
     private List<Terms> allTerms;
@@ -100,8 +100,11 @@ public class CourseRecyclerAdapter extends RecyclerView.Adapter<CourseRecyclerAd
             if(currentTerm.getTermID()==termID){
                 holder.courseTermName.setText(currentTerm.getTermName());
             }
-        }
 
+        }
+        if(holder.courseTermName.getText().toString().equalsIgnoreCase("TextView")){
+            holder.courseTermName.setText("Unassigned");
+        }
     }
 
     @Override

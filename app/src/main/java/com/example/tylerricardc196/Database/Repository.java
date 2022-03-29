@@ -20,7 +20,10 @@ public class Repository {
     private List<Assignments> tAllAssignments;
     private List<Courses> tAllCourses;
     private List<Terms> tAllTerms;
-
+    private int nextCourseID;
+    private int nextTermID;
+    private int nextAssignmentID;
+    private int unassignedCrouseID;
     private static int NUMBER_OF_THREADS = 4;
     static final ExecutorService databaseExecutor = Executors.newFixedThreadPool(NUMBER_OF_THREADS);
 
@@ -45,6 +48,19 @@ public class Repository {
         return tAllCourses;
 
     }
+
+    public int NextCourseID(){
+        databaseExecutor.execute(()->{
+            nextCourseID=tCourseDAO.getNextCourseID();
+            });
+        try{
+            Thread.sleep(1000);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return nextCourseID+1;
+    }
+
 
     public void insert(Courses course){
 
@@ -95,6 +111,19 @@ public class Repository {
 
     }
 
+    public int NextTermID(){
+        databaseExecutor.execute(()->{
+            nextTermID=tTermDAO.getNextTermID();
+        });
+        try{
+            Thread.sleep(1000);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return nextTermID+1;
+    }
+
+
     public void insert(Terms term){
 
         databaseExecutor.execute(()->{
@@ -142,6 +171,18 @@ public class Repository {
         return tAllAssignments;
 
     }
+    public int NextAssignmentID(){
+        databaseExecutor.execute(()->{
+            nextAssignmentID=tAssignmentDAO.getNextAssignmentID();
+        });
+        try{
+            Thread.sleep(1000);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return nextAssignmentID+1;
+    }
+
 
     public void insert(Assignments assignment){
 

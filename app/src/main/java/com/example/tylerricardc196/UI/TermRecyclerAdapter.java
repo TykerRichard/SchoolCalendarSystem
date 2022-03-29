@@ -80,8 +80,8 @@ public class TermRecyclerAdapter extends RecyclerView.Adapter<TermRecyclerAdapte
         @Override
         public void onBindViewHolder(@NonNull TermRecyclerAdapter.MyViewHolder holder, int position) {
             String termName = allTerms.get(position).getTermName();
-            String termStart=allTerms.get(position).getStartDate();
-            String termEnd= allTerms.get(position).getEndDate();
+            String termStart = allTerms.get(position).getStartDate();
+            String termEnd = allTerms.get(position).getEndDate();
             holder.termName.setText(termName);
             holder.termStartDate.setText(termStart);
             holder.termEndDate.setText(termEnd);

@@ -9,8 +9,11 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.PopupMenu;
 
+import com.example.tylerricardc196.Classes.Courses;
 import com.example.tylerricardc196.Database.Repository;
 import com.example.tylerricardc196.R;
+
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -19,10 +22,12 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Repository repository=new Repository(getApplication());
+
     }
 
     public void MainMenu(View view) {
         PopupMenu mainPopUpMenu = new PopupMenu(MainActivity.this, view);
+
         MenuInflater inflater = mainPopUpMenu.getMenuInflater();
         inflater.inflate(R.menu.popup_menu, mainPopUpMenu.getMenu());
         mainPopUpMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {

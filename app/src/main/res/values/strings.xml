@@ -141,11 +141,23 @@
     <string name="add_assignment">Add Assignment</string>
     <string name="assignment_details">Assignment Details</string>
     <string name="string_assignment_details" />
+    <string name="name">Name</string>
+    <string name="type">Type</string>
+    <string name="assigned_course">Assigned Course</string>
+    <string name="enter_assignment_name">Enter Assignment Name</string>
+    <string name="assignment_id">Assignment ID</string>
 
     <string-array name="courseStatus">
         <item>In Progress</item>
         <item>Dropped</item>
         <item>Not Started</item>
     </string-array>
+
+    <string-array name="assignmentTypes">
+        <item>Performance Assessment</item>
+        <item>Objective Assessment</item>
+    </string-array>
+
+
 
 </resources>

@@ -25,4 +25,8 @@ public interface AssignmentDAO {
     @Query("SELECT * FROM Assignments ORDER BY assignmentName ASC")
     List<Assignments> getAllAssignments();
 
+    @Query("SELECT MAX(AssignmentID) FROM Assignments")
+    int getNextAssignmentID();
+
+
 }

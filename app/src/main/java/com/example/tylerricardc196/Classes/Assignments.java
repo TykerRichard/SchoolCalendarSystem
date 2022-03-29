@@ -12,12 +12,17 @@ public class Assignments {
     private String assignmentName;
     private String type;
     private String endDate;
+    private String startDate;
+    private int assignedCourse;
 
-    public Assignments(int assignmentID, String assignmentName, String type, String endDate) {
+
+    public Assignments(int assignmentID, String assignmentName, String type, String endDate, String startDate,int assignedCourse) {
         this.assignmentID = assignmentID;
         this.assignmentName = assignmentName;
         this.type = type;
         this.endDate = endDate;
+        this.startDate = startDate;
+        this.assignedCourse=assignedCourse;
     }
 
     @Override
@@ -28,6 +33,22 @@ public class Assignments {
                 ", type='" + type + '\'' +
                 ", endDate=" + endDate +
                 '}';
+    }
+
+    public int getAssignedCourse() {
+        return assignedCourse;
+    }
+
+    public void setAssignedCourse(int assignedCourse) {
+        this.assignedCourse = assignedCourse;
+    }
+
+    public String getStartDate() {
+        return startDate;
+    }
+
+    public void setStartDate(String startDate) {
+        this.startDate = startDate;
     }
 
     public int getAssignmentID() {

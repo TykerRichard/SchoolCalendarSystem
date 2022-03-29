@@ -6,4 +6,177 @@
     android:layout_height="match_parent"
     tools:context=".UI.AddModifyAssignments">
 
+    <TextView
+        android:id="@+id/AssignmentName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="36dp"
+        android:layout_marginTop="52dp"
+        android:text="@string/name"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/AssignmentType"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="36dp"
+        android:layout_marginTop="32dp"
+        android:text="@string/type"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/AssignmentName" />
+
+    <TextView
+        android:id="@+id/AssignmentEndDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="36dp"
+        android:layout_marginTop="36dp"
+        android:text="@string/end_date"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/AssignmentStartDate" />
+
+    <TextView
+        android:id="@+id/AssignmentStartDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="36dp"
+        android:layout_marginTop="36dp"
+        android:text="@string/start_date"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/AssignmentType" />
+
+    <TextView
+        android:id="@+id/AssignmentCourse"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="36dp"
+        android:layout_marginTop="36dp"
+        android:text="@string/assigned_course"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/AssignmentEndDate" />
+
+    <EditText
+        android:id="@+id/AssignmentNameField"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="84dp"
+        android:layout_marginTop="32dp"
+        android:ems="10"
+        android:hint="@string/enter_assignment_name"
+        android:inputType="textPersonName"
+        android:textColorHint="#757575"
+        android:textSize="14sp"
+        app:layout_constraintStart_toEndOf="@+id/AssignmentName"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="TouchTargetSizeCheck"
+        android:importantForAutofill="no" />
+
+    <Spinner
+        android:id="@+id/AssignmentTypeSpinner"
+        android:layout_width="243dp"
+        android:layout_height="34dp"
+        android:layout_marginStart="92dp"
+        android:layout_marginTop="15dp"
+        app:layout_constraintStart_toEndOf="@+id/AssignmentType"
+        app:layout_constraintTop_toBottomOf="@+id/AssignmentNameField"
+        tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
+
+    <Spinner
+        android:id="@+id/AssignmentCourseSpinner"
+        android:layout_width="195dp"
+        android:layout_height="39dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="15dp"
+        app:layout_constraintStart_toEndOf="@+id/AssignmentCourse"
+        app:layout_constraintTop_toBottomOf="@+id/AssignmentEndDateField"
+        tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+
+    <EditText
+        android:id="@+id/AssignmentStartField"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="60dp"
+        android:layout_marginTop="15dp"
+        android:ems="10"
+        android:hint="@string/enter_start_date"
+        android:importantForAutofill="no"
+        android:inputType="date"
+        android:textColorHint="#757575"
+        android:textSize="14sp"
+        app:layout_constraintStart_toEndOf="@+id/AssignmentStartDate"
+        app:layout_constraintTop_toBottomOf="@+id/AssignmentTypeSpinner"
+        tools:ignore="TouchTargetSizeCheck" />
+
+    <EditText
+        android:id="@+id/AssignmentEndDateField"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="68dp"
+        android:layout_marginTop="15dp"
+        android:ems="10"
+        android:hint="@string/enter_end_date"
+        android:importantForAutofill="no"
+        android:inputType="date"
+        android:textColorHint="#757575"
+        android:textSize="14sp"
+        app:layout_constraintStart_toEndOf="@+id/AssignmentEndDate"
+        app:layout_constraintTop_toBottomOf="@+id/AssignmentStartField"
+        tools:ignore="TouchTargetSizeCheck" />
+
+    <Button
+        android:id="@+id/AssignmentSaveButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="36dp"
+        android:layout_marginTop="52dp"
+        android:text="@string/save"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/AssignmentID" />
+
+    <Button
+        android:id="@+id/AssignmentCancelButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="52dp"
+        android:layout_marginBottom="240dp"
+        android:text="@string/cancel"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/AssignmentSaveButton"
+        app:layout_constraintTop_toBottomOf="@+id/AssignmentID"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <Button
+        android:id="@+id/AssignmentDeleteButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="28dp"
+        android:layout_marginBottom="240dp"
+        android:text="@string/delete"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/AssignmentCancelButton"
+        app:layout_constraintTop_toBottomOf="@+id/AssignmentID"
+        app:layout_constraintVertical_bias="0.464" />
+
+    <TextView
+        android:id="@+id/AssignmentID"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="36dp"
+        android:layout_marginTop="20dp"
+        android:text="@string/assignment_id"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/AssignmentCourse" />
+
+    <TextView
+        android:id="@+id/AssignmentIDField"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="25dp"
+        android:text="@string/disabled"
+        app:layout_constraintStart_toEndOf="@+id/AssignmentID"
+        app:layout_constraintTop_toBottomOf="@+id/AssignmentCourseSpinner" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

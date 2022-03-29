@@ -22,7 +22,12 @@ public interface TermDAO {
     @Delete
     void delete(Terms term);
 
+    @Query("SELECT MAX(TermID) FROM Terms")
+    int getNextTermID();
+
     @Query("SELECT * FROM Terms ORDER BY TermName  ASC")
     List<Terms> getAllTerm();
+
+
 
 }

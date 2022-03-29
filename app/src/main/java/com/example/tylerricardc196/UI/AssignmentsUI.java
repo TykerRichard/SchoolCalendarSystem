@@ -36,7 +36,7 @@ public class AssignmentsUI extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item){
         switch (item.getItemId()){
-            case R.id.Action_AddTerm:
+            case R.id.AddAssignmnet:
                 startActivity(new Intent(AssignmentsUI.this, AddModifyAssignments.class));
                 finish();
                 return true;

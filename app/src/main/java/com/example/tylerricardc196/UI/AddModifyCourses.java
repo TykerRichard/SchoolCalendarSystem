@@ -1,8 +1,12 @@
 package com.example.tylerricardc196.UI;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Activity;
 import android.app.DatePickerDialog;
+import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -46,53 +50,54 @@ public class AddModifyCourses extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_modify_courses);
-        List<String> termNames=new ArrayList<String>();
-        for(Terms currentTerm : allTerms){
+        List<String> termNames = new ArrayList<String>();
+        for (Terms currentTerm : allTerms) {
             termNames.add(currentTerm.getTermName());
         }
 
 
-        EditText startDate=findViewById(R.id.CourseStartDateField);
+        EditText startDate = findViewById(R.id.CourseStartDateField);
         startDate.setFocusableInTouchMode(false);
         startDate.setFocusable(false);
-        EditText endDate=findViewById(R.id.CourseEndDateField);
+        EditText endDate = findViewById(R.id.CourseEndDateField);
         endDate.setFocusableInTouchMode(false);
         startDate.setFocusable(false);
         Spinner statusSpinner = (Spinner) findViewById(R.id.StatusSpinner);
         Spinner termSpinner = (Spinner) findViewById(R.id.TermSpinner);
 
-        EditText courseNameFld=findViewById(R.id.CourseNameField);
-        EditText startDateFld=findViewById(R.id.CourseStartDateField);
-        EditText endDateFld= findViewById(R.id.CourseEndDateField);
-        EditText instructorNameFld=findViewById(R.id.InstructorNameField);
-        EditText instructorPhoneNumberFld=findViewById(R.id.InstructorPhoneNumberField);
-        EditText instructorEmailFld=findViewById(R.id.InstructorEmailField);
-        EditText notesFld=findViewById(R.id.NotesField);
-        TextView courseIDFld=findViewById(R.id.CourseIDField);
+        EditText courseNameFld = findViewById(R.id.CourseNameField);
+        EditText startDateFld = findViewById(R.id.CourseStartDateField);
+        EditText endDateFld = findViewById(R.id.CourseEndDateField);
+        EditText instructorNameFld = findViewById(R.id.InstructorNameField);
+        EditText instructorPhoneNumberFld = findViewById(R.id.InstructorPhoneNumberField);
+        EditText instructorEmailFld = findViewById(R.id.InstructorEmailField);
+        EditText notesFld = findViewById(R.id.NotesField);
+        TextView courseIDFld = findViewById(R.id.CourseIDField);
+        Button cancel=findViewById(R.id.CourseCancelButton);
+        Button delete=findViewById(R.id.CourseDeleteButton);
 
         ArrayAdapter<CharSequence> statusAdapter = ArrayAdapter.createFromResource(this,
                 R.array.courseStatus, android.R.layout.simple_spinner_item);
         statusAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         statusSpinner.setAdapter(statusAdapter);
 
-        ArrayAdapter<String> termAdapter = new ArrayAdapter(this, android.R.layout.simple_spinner_item,termNames);
+        ArrayAdapter<String> termAdapter = new ArrayAdapter(this, android.R.layout.simple_spinner_item, termNames);
         termAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         termSpinner.setAdapter(termAdapter);
 
 
-
-        try{
-            Intent intent=getIntent();
-            int termID=intent.getIntExtra("TermID",0);
-            int courseID=intent.getIntExtra("CourseID",0);
-            String courseTitle=intent.getStringExtra("CourseTitle");
-            String courseStart=intent.getStringExtra("CourseStart");
-            String courseEnd=intent.getStringExtra("CourseEnd");
-            String status= intent.getStringExtra("Status");
-            String instructorName=intent.getStringExtra("InstructorName");
-            String instructorNumber=intent.getStringExtra("InstructorNumber");
-            String instructorEmail=intent.getStringExtra("Email");
-            String notes=intent.getStringExtra("Notes");
+        try {
+            Intent intent = getIntent();
+            int termID = intent.getIntExtra("TermID", 0);
+            int courseID = intent.getIntExtra("CourseID", 0);
+            String courseTitle = intent.getStringExtra("CourseTitle");
+            String courseStart = intent.getStringExtra("CourseStart");
+            String courseEnd = intent.getStringExtra("CourseEnd");
+            String status = intent.getStringExtra("Status");
+            String instructorName = intent.getStringExtra("InstructorName");
+            String instructorNumber = intent.getStringExtra("InstructorNumber");
+            String instructorEmail = intent.getStringExtra("Email");
+            String notes = intent.getStringExtra("Notes");
             String termName;
 
             courseNameFld.setText(courseTitle);
@@ -104,41 +109,40 @@ public class AddModifyCourses extends AppCompatActivity {
             notesFld.setText(notes);
 
 
-            if(courseID !=0){
+            if (courseID != 0) {
                 courseIDFld.setText(Integer.toString(courseID));
             }
-            for(Terms currentTerm : allTerms) {
+            for (Terms currentTerm : allTerms) {
                 if (currentTerm.getTermID() == termID) {
                     termName = currentTerm.getTermName();
-                    int termSpinnerLocation=termAdapter.getPosition(termName);
+                    int termSpinnerLocation = termAdapter.getPosition(termName);
                     termSpinner.setSelection(termSpinnerLocation);
+                    break;
                 }
             }
-            int statusSpinnerLocation=statusAdapter.getPosition(status);
+
+            int statusSpinnerLocation = statusAdapter.getPosition(status);
             statusSpinner.setSelection(statusSpinnerLocation);
         } catch (Exception e) {
             e.printStackTrace();
         }
 
 
-
-
-
-        Button saveButton =findViewById(R.id.CourseSaveButton);
+        Button saveButton = findViewById(R.id.CourseSaveButton);
         saveButton.setOnClickListener(new View.OnClickListener() {
 
 
             public void onClick(View v) {
-                String term=termSpinner.getSelectedItem().toString();
-                int termID=0;
-                for(Terms currentTerm : allTerms){
-                    if(currentTerm.getTermName().equals(term)){
-                        termID=currentTerm.getTermID();
+                String term = termSpinner.getSelectedItem().toString();
+                int termID = 0;
+                for (Terms currentTerm : allTerms) {
+                    if (currentTerm.getTermName().equals(term)) {
+                        termID = currentTerm.getTermID();
                     }
                 }
-                boolean error=false;
+                boolean error = false;
 
-                List<EditText> errorCheck= new ArrayList<EditText>();
+                List<EditText> errorCheck = new ArrayList<EditText>();
                 errorCheck.add(courseNameFld);
                 errorCheck.add(startDateFld);
                 errorCheck.add(endDateFld);
@@ -160,8 +164,8 @@ public class AddModifyCourses extends AppCompatActivity {
                     e.printStackTrace();
 
                 }
-                if(!error & courseIDFld.getText().toString().equalsIgnoreCase("Disabled") ) {
-                    int courseID = (repository.getAllTerms().size()) + 1;
+                if (!error & courseIDFld.getText().toString().equalsIgnoreCase("Disabled")) {
+                    int courseID = repository.NextCourseID();
                     Courses newCourse = new Courses(courseID,
                             courseNameFld.getText().toString(), startDateFld.getText().toString(),
                             endDateFld.getText().toString(), statusSpinner.getSelectedItem().toString(),
@@ -170,8 +174,7 @@ public class AddModifyCourses extends AppCompatActivity {
                     repository.insert(newCourse);
                     startActivity(new Intent(AddModifyCourses.this, CoursesUI.class));
                     finish();
-                }
-                else if(!error){
+                } else if (!error) {
                     Courses newCourse = new Courses(Integer.parseInt(courseIDFld.getText().toString()),
                             courseNameFld.getText().toString(), startDateFld.getText().toString(),
                             endDateFld.getText().toString(), statusSpinner.getSelectedItem().toString(),
@@ -187,34 +190,83 @@ public class AddModifyCourses extends AppCompatActivity {
 
         });
 
+        cancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent=new Intent(AddModifyCourses.this,CoursesUI.class);
+                startActivity(intent);
+                finish();
+            }
+        });
+
+        delete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Context context=view.getContext();
+                AlertDialog.Builder builder = new AlertDialog.Builder(context);
 
 
-    startDate.setOnClickListener(new View.OnClickListener(){
+                if(courseIDFld.getText().toString().equalsIgnoreCase("disabled")){
+                    builder.setMessage("No existing course selected! Return to course menu" +
+                            " and select a course to delete");
+                    builder.setCancelable(true);
+                    builder.setPositiveButton("Okay", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+                            dialogInterface.cancel();
+                        }
+                    });
+                }else{
+                    for(Courses current : allCourses){
+                        if(current.getCourseID()==Integer.parseInt(courseIDFld.getText().toString())){
+                            builder.setMessage("Are you sure you want to delete this course?");
+                            builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialogInterface, int i) {
+                                    repository.delete(current);
+                                    dialogInterface.cancel();
+                                    Intent intent=new Intent(AddModifyCourses.this,CoursesUI.class);
+                                    startActivity(intent);
+                                    finish();
+                                }
+                            });
+                            builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialogInterface, int i) {
+                                    dialogInterface.cancel();
+                                }
+                            });
 
-        public void onClick(View v){
-            datePicker(startDate,myCalendar);
-        }
-    });
-
-    endDate.setOnClickListener(new View.OnClickListener(){
-
-        public void onClick(View v){
-            datePicker(endDate,myCalendar);
-
-        }
-
-    });
+                        }
+                    }
+                }
+                AlertDialog alert=builder.create();
+                alert.show();
+            }
+        });
 
 
+
+
+
+
+        startDate.setOnClickListener(new View.OnClickListener() {
+
+            public void onClick(View v) {
+                datePicker(startDate, myCalendar);
+            }
+        });
+
+        endDate.setOnClickListener(new View.OnClickListener() {
+
+            public void onClick(View v) {
+                datePicker(endDate, myCalendar);
+
+            }
+
+        });
 
     }
-
-
-
-
-
-
-
     private void datePicker(EditText editText, Calendar calendar){
         DatePickerDialog.OnDateSetListener date = new DatePickerDialog.OnDateSetListener() {
             @Override
