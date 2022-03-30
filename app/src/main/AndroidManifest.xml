@@ -28,15 +28,6 @@
             android:exported="false"
             android:label="@string/title_activity_term_ui" />
         <activity
-            android:name=".UI.DetailedAssignment"
-            android:exported="false" />
-        <activity
-            android:name=".UI.DetailedTerms"
-            android:exported="false" />
-        <activity
-            android:name=".UI.DetailedCourses"
-            android:exported="false" />
-        <activity
             android:name=".UI.AssignmentsUI"
             android:exported="false" />
         <activity

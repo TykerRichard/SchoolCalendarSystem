@@ -1,9 +1,15 @@
 package com.example.tylerricardc196.UI;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Activity;
 import android.app.DatePickerDialog;
+import android.content.Context;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -29,6 +35,7 @@ public class AddModifyAssignments extends AppCompatActivity {
     private final List<Assignments> allAssignments = repository.getAllAssignments();
     private final List<Courses> allCourses = repository.getAllCourses();
     final Calendar myCalendar = Calendar.getInstance();
+    int courseID;
 
 
     @Override
@@ -61,41 +68,139 @@ public class AddModifyAssignments extends AppCompatActivity {
         courseAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         courseSpinner.setAdapter(courseAdapter);
 
+        try{
+            Intent intent=getIntent();
+            String courseName=intent.getStringExtra("AssignmentName");
+            String start=intent.getStringExtra("StartDate");
+            String end = intent.getStringExtra("EndDate");
+            int ID=intent.getIntExtra("AssignmentID",0);
+            if(ID!=0) {
+                assignmentID.setText(Integer.toString(ID));
+            }
+            assignmentName.setText(courseName);
+            startDate.setText(start);
+            endDate.setText(end);
+            String type=intent.getStringExtra("Type");
+
+            int typeLocation=assignmentTypeAdapter.getPosition(type);
+            assignmentSpinner.setSelection(typeLocation);
+
+            for(Courses current : allCourses){
+                if(current.getCourseID()==intent.getIntExtra("AssignedCourse",0)){
+                    String title=current.getCourseTitle();
+                    int titleLocation=courseAdapter.getPosition(title);
+                    courseSpinner.setSelection(titleLocation);
+                }
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
 
         saveButton.setOnClickListener(new View.OnClickListener() {
+
             public void onClick(View v) {
-                List<String> errorChecking = new ArrayList<String>();
-                errorChecking.add(assignmentName.getText().toString());
-                errorChecking.add(endDate.getText().toString());
-                errorChecking.add(endDate.getText().toString());
+                List<EditText> errorChecking = new ArrayList<EditText>();
+                errorChecking.add(assignmentName);
+                errorChecking.add(endDate);
+                errorChecking.add(endDate);
                 boolean error = false;
 
-                for (String currentString : errorChecking) {
+                for (EditText current : errorChecking) {
+                    String currentString=current.getText().toString();
                     if (currentString.isEmpty()) {
                         error = true;
+                        current.setError("This Field cannot be blank");
                         break;
                     }
                 }
 
                 if (!error && assignmentID.getText().toString().equalsIgnoreCase("disabled")) {
+                    int newID=repository.NextAssignmentID();
+                    for(Courses current : allCourses){
+                        if(current.getCourseTitle().equalsIgnoreCase(courseSpinner.getSelectedItem().toString())){
+                            courseID=current.getCourseID();
+                        }
+                    }
+                    Assignments newAssignment=new Assignments(newID,assignmentName.getText().toString(),
+                            assignmentSpinner.getSelectedItem().toString(),endDate.getText().toString(),
+                            startDate.getText().toString(),courseID);
+                            repository.insert(newAssignment);
+                            Intent intent=new Intent(AddModifyAssignments.this,AssignmentsUI.class);
+                            startActivity(intent);
+                            finish();
+                }else if(!error);
+                        int currentID=Integer.parseInt(assignmentID.getText().toString());
+                        int courseID=0;
+                        for(Courses current : allCourses){
+                            if(current.getCourseTitle().equalsIgnoreCase(courseSpinner.getSelectedItem().toString())){
+                                courseID=current.getCourseID();
+                            }
+                        }
 
-                }
-
+                        Assignments update=new Assignments(currentID,assignmentName.getText().toString(),
+                            assignmentSpinner.getSelectedItem().toString(),endDate.getText().toString(),
+                            startDate.getText().toString(),courseID);
+                        repository.update(update);
+                        Intent intent= new Intent(AddModifyAssignments.this,AssignmentsUI.class);
+                        startActivity(intent);
+                        finish();
 
             }
         });
 
         cancelButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-
+                Intent intent=new Intent(AddModifyAssignments.this,AssignmentsUI.class);
+                startActivity(intent);
+                finish();
 
             }
         });
 
-        saveButton.setOnClickListener(new View.OnClickListener() {
+        deleteButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
+                Context context=v.getContext();
+                AlertDialog.Builder builder = new AlertDialog.Builder(context);
 
-
+                if(assignmentID.getText().toString().equalsIgnoreCase("disabled")){
+                    builder.setMessage("No existing assignment selected! Return to assignment menu" +
+                            " and select a assignment to delete");
+                    builder.setCancelable(true);
+                    builder.setPositiveButton("okay", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+                            dialogInterface.cancel();
+                        }
+                    });
+                }else{
+                    for(Assignments current : allAssignments){
+                        if(current.getAssignmentID() == Integer.parseInt(assignmentID.getText().toString())){
+                            builder.setMessage("Are you sure you want to delete this assignment?");
+                            builder.setPositiveButton("yes", new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialogInterface, int i) {
+                                    repository.delete(current);
+                                    dialogInterface.cancel();
+                                    Intent intent= new Intent(AddModifyAssignments.this,AssignmentsUI.class);
+                                    startActivity(intent);
+                                    finish();
+                                }
+                            });
+                            builder.setNegativeButton("no", new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialogInterface, int i) {
+                                    dialogInterface.cancel();
+                                }
+                            });
+                            AlertDialog alert=builder.create();
+                            alert.show();
+                        }
+                    }
+                }
+                AlertDialog alert=builder.create();
+                alert.show();
             }
         });
 

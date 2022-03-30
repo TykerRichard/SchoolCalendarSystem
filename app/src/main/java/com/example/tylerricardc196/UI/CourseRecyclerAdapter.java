@@ -22,7 +22,7 @@ import java.util.List;
 
 public class CourseRecyclerAdapter extends RecyclerView.Adapter<CourseRecyclerAdapter.MyViewHolder> {
     private final List<Courses> allCourses;
-    private int selectedPosition = 1;
+    private int selectedPosition;
     private TextView courseTextView;
     private Context context;
     private final List<Terms> allTerms;
@@ -53,7 +53,7 @@ public class CourseRecyclerAdapter extends RecyclerView.Adapter<CourseRecyclerAd
                 @Override
                 public void onClick(View view) {
                     selectedPosition = getAdapterPosition();
-                    final Courses current = allCourses.get(selectedPosition);
+                    Courses current = allCourses.get(selectedPosition);
                     Intent intent = new Intent(context, AddModifyCourses.class);
                     intent.putExtra("TermID", current.getTermID());
                     intent.putExtra("CourseID", current.getCourseID());
