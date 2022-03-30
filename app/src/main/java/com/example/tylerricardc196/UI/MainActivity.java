@@ -10,6 +10,7 @@ import android.view.View;
 import android.widget.PopupMenu;
 
 import com.example.tylerricardc196.Classes.Courses;
+
 import com.example.tylerricardc196.Database.Repository;
 import com.example.tylerricardc196.R;
 
@@ -51,6 +52,11 @@ public class MainActivity extends AppCompatActivity {
         });
         mainPopUpMenu.show();
     }
+    @Override
+    protected void onStop() {
+        super.onStop();
 
 
-}
+        }
+    }
+
