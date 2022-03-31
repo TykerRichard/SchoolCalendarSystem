@@ -148,6 +148,10 @@
     <string name="assignment_id">Assignment ID</string>
     <string name="course">Course</string>
     <string name="assignment_name">Assignment Name</string>
+    <string name="channel_name">mychannel</string>
+    <string name="channel_description">myChannelDescription</string>
+    <string name="share">Share</string>
+    <string name="set_notification">Set Notification</string>
 
     <string-array name="courseStatus">
         <item>In Progress</item>

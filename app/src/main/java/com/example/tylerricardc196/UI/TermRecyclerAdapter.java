@@ -58,6 +58,8 @@ public class TermRecyclerAdapter extends RecyclerView.Adapter<TermRecyclerAdapte
                     context.startActivity(intent);
 
 
+
+
                 }
 
             });

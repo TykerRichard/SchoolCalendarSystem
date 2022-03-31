@@ -10,7 +10,6 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.TylerRicardC196">
 
-
         <activity
             android:name=".UI.AddModifyAssignments"
             android:exported="false" />

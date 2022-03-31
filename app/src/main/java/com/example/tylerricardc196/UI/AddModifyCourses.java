@@ -1,20 +1,27 @@
 package com.example.tylerricardc196.UI;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Activity;
+import android.app.AlarmManager;
 import android.app.DatePickerDialog;
+import android.app.PendingIntent;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.PopupMenu;
 import android.widget.Spinner;
 import android.widget.TextView;
 
@@ -24,9 +31,11 @@ import com.example.tylerricardc196.Database.Repository;
 import com.example.tylerricardc196.R;
 
 import java.lang.reflect.Array;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 
@@ -47,6 +56,8 @@ public class AddModifyCourses extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_modify_courses);
         List<String> termNames = new ArrayList<String>();
+
+
         for (Terms currentTerm : allTerms) {
             termNames.add(currentTerm.getTermName());
         }
@@ -285,6 +296,45 @@ public class AddModifyCourses extends AppCompatActivity {
         SimpleDateFormat dateFormat = new SimpleDateFormat(myFormat, Locale.US);
         date.setText(dateFormat.format(calendar.getTime()));
     }
+
+
+    public boolean onCreateOptionsMenu(Menu menu) {
+
+        getMenuInflater().inflate(R.menu.menu_add_modify_courses, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        SimpleDateFormat format;
+        String formatDate="MM/dd/yy";
+        format=new SimpleDateFormat(formatDate, Locale.US);
+        Date myDate=null;
+
+
+        switch (item.getItemId()) {
+            case R.id.SetNotificationButton:
+                EditText courseName=findViewById(R.id.CourseNameField);
+                EditText startDate=findViewById(R.id.CourseStartDateField);
+
+                try{
+                    myDate=format.parse(startDate.getText().toString());
+                } catch (ParseException e) {
+                    e.printStackTrace();
+                }
+
+                Long trigger=myDate.getTime();
+                Intent intent=new Intent(AddModifyCourses.this,NotificationReceiver.class);
+                intent.putExtra("key",courseName.getText().toString() +" starts on " + startDate.getText().toString());
+                PendingIntent sender=PendingIntent.getBroadcast(AddModifyCourses.this,MainActivity.numAlert++,intent,0);
+                AlarmManager alarmManager=(AlarmManager)getSystemService(Context.ALARM_SERVICE);
+                alarmManager.set(AlarmManager.RTC_WAKEUP,trigger,sender);
+                return true;
+        }
+        return false;
+    }
+
 
 
 }
