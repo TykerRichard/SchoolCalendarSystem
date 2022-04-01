@@ -25,6 +25,7 @@ import android.widget.PopupMenu;
 import android.widget.Spinner;
 import android.widget.TextView;
 
+import com.example.tylerricardc196.Classes.Assignments;
 import com.example.tylerricardc196.Classes.Courses;
 import com.example.tylerricardc196.Classes.Terms;
 import com.example.tylerricardc196.Database.Repository;
@@ -44,6 +45,7 @@ public class AddModifyCourses extends AppCompatActivity {
     private final List<Terms> allTerms = repository.getAllTerms();
     private final List<Courses> allCourses = repository.getAllCourses();
     final Calendar myCalendar = Calendar.getInstance();
+    private final List<Assignments> allAssignments= repository.getAllAssignments();
 
 
     public AddModifyCourses() {
@@ -226,11 +228,18 @@ public class AddModifyCourses extends AppCompatActivity {
                 } else {
                     for (Courses current : allCourses) {
                         if (current.getCourseID() == Integer.parseInt(courseIDFld.getText().toString())) {
-                            builder.setMessage("Are you sure you want to delete this course?");
+                            builder.setMessage("Are you sure you want to delete this course? All assignments associated with this " +
+                                    "course will be unassigned.");
                             builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                                 @Override
                                 public void onClick(DialogInterface dialogInterface, int i) {
                                     repository.delete(current);
+                                    for(Assignments currentAssignment : allAssignments){
+                                        if(currentAssignment.getAssignedCourse()==current.getCourseID()){
+                                            currentAssignment.setAssignedCourse(1);
+                                            repository.update(currentAssignment);
+                                        }
+                                    }
                                     dialogInterface.cancel();
                                     Intent intent = new Intent(AddModifyCourses.this, CoursesUI.class);
                                     startActivity(intent);
@@ -310,27 +319,54 @@ public class AddModifyCourses extends AppCompatActivity {
         SimpleDateFormat format;
         String formatDate="MM/dd/yy";
         format=new SimpleDateFormat(formatDate, Locale.US);
-        Date myDate=null;
-
+        Date dateStart=null;
+        Date dateEnd=null;
+        EditText courseName=findViewById(R.id.CourseNameField);
+        EditText startDate=findViewById(R.id.CourseStartDateField);
+        EditText endDate=findViewById(R.id.CourseEndDateField);
 
         switch (item.getItemId()) {
-            case R.id.SetNotificationButton:
-                EditText courseName=findViewById(R.id.CourseNameField);
-                EditText startDate=findViewById(R.id.CourseStartDateField);
+
+            case R.id.ShareButton:
+
+                Intent sendIntent= new Intent();
+                sendIntent.setAction(Intent.ACTION_SEND);
+                sendIntent.putExtra(Intent.EXTRA_TEXT,courseName.getText().toString());
+                sendIntent.putExtra(Intent.EXTRA_TITLE, "Sharing This Course Info");
+                sendIntent.setType("text/plain");
+                Intent shareIntent=Intent.createChooser(sendIntent,null);
+                startActivity(shareIntent);
+                return true;
+
+
+            case R.id.SetNotificationButton: ;
 
                 try{
-                    myDate=format.parse(startDate.getText().toString());
+                    dateStart=format.parse(startDate.getText().toString());
+                    dateEnd=format.parse(endDate.getText().toString());
+
                 } catch (ParseException e) {
                     e.printStackTrace();
                 }
 
-                Long trigger=myDate.getTime();
+                Long trigger=dateStart.getTime();
                 Intent intent=new Intent(AddModifyCourses.this,NotificationReceiver.class);
                 intent.putExtra("key",courseName.getText().toString() +" starts on " + startDate.getText().toString());
                 PendingIntent sender=PendingIntent.getBroadcast(AddModifyCourses.this,MainActivity.numAlert++,intent,0);
                 AlarmManager alarmManager=(AlarmManager)getSystemService(Context.ALARM_SERVICE);
                 alarmManager.set(AlarmManager.RTC_WAKEUP,trigger,sender);
+
+                Long trigger2=dateEnd.getTime();
+                Intent intent2=new Intent(AddModifyCourses.this,NotificationReceiver.class);
+                intent2.putExtra("key",courseName.getText().toString()+" ends on "+ endDate.getText().toString());
+                PendingIntent sender2=PendingIntent.getBroadcast(AddModifyCourses.this,MainActivity.numAlert++,intent2,0);
+                AlarmManager alarmManager2=(AlarmManager)getSystemService(Context.ALARM_SERVICE);
+                alarmManager2.set(AlarmManager.RTC_WAKEUP,trigger2,sender2);
+
+
                 return true;
+
+
         }
         return false;
     }

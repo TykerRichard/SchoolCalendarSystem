@@ -31,6 +31,11 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Repository repository = new Repository(getApplication());
+        Terms unassignedTerm=new Terms(1,"unassigned","","");
+        Courses unassignedCourse= new Courses(1,"unassigned","","","",
+                "","","","",1);
+        repository.insert(unassignedTerm);
+        repository.insert(unassignedCourse);
 
     }
 

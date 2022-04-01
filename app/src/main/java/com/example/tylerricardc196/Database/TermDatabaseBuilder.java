@@ -14,7 +14,7 @@ import com.example.tylerricardc196.DAO.AssignmentDAO;
 import com.example.tylerricardc196.DAO.CourseDAO;
 import com.example.tylerricardc196.DAO.TermDAO;
 
-@Database(entities = {Assignments.class, Courses.class, Terms.class}, version = 10, exportSchema = false)
+@Database(entities = {Assignments.class, Courses.class, Terms.class}, version = 13, exportSchema = false)
 public abstract class TermDatabaseBuilder extends RoomDatabase {
     public abstract AssignmentDAO assignmentDAO();
 

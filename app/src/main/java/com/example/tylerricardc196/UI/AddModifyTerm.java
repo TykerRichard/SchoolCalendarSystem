@@ -154,13 +154,14 @@ public class AddModifyTerm extends AppCompatActivity {
                                     "Yes",
                                     new DialogInterface.OnClickListener() {
                                         public void onClick(DialogInterface dialog, int id) {
-                                            repository.delete(deleteTerm);
                                             List<Courses> allCourses = repository.getAllCourses();
                                             for (Courses currentCourse : allCourses) {
                                                 if (currentCourse.getTermID() == deleteTerm.getTermID()) {
-                                                    currentCourse.setCourseID(0);
+                                                    currentCourse.setTermID(1);
+                                                    repository.update(currentCourse);
                                                 }
                                             }
+                                            repository.delete(deleteTerm);
                                             dialog.cancel();
                                             Intent intent = new Intent(AddModifyTerm.this, TermUI.class);
                                             startActivity(intent);

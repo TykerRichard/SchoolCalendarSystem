@@ -108,7 +108,7 @@ public class AddModifyAssignments extends AppCompatActivity {
                 boolean error = false;
 
                 for (EditText current : errorChecking) {
-                    String currentString=current.getText().toString();
+                    String currentString = current.getText().toString();
                     if (currentString.isEmpty()) {
                         error = true;
                         current.setError("This Field cannot be blank");
@@ -117,38 +117,41 @@ public class AddModifyAssignments extends AppCompatActivity {
                 }
 
                 if (!error && assignmentID.getText().toString().equalsIgnoreCase("disabled")) {
-                    int newID=repository.NextAssignmentID();
-                    for(Courses current : allCourses){
-                        if(current.getCourseTitle().equalsIgnoreCase(courseSpinner.getSelectedItem().toString())){
-                            courseID=current.getCourseID();
+                    int newID = repository.NextAssignmentID();
+                    for (Courses current : allCourses) {
+                        if (current.getCourseTitle().equalsIgnoreCase(courseSpinner.getSelectedItem().toString())) {
+                            courseID = current.getCourseID();
                         }
                     }
-                    Assignments newAssignment=new Assignments(newID,assignmentName.getText().toString(),
-                            assignmentSpinner.getSelectedItem().toString(),endDate.getText().toString(),
-                            startDate.getText().toString(),courseID);
-                            repository.insert(newAssignment);
-                            Intent intent=new Intent(AddModifyAssignments.this,AssignmentsUI.class);
-                            startActivity(intent);
-                            finish();
-                }else if(!error);
-                        int currentID=Integer.parseInt(assignmentID.getText().toString());
-                        int courseID=0;
-                        for(Courses current : allCourses){
-                            if(current.getCourseTitle().equalsIgnoreCase(courseSpinner.getSelectedItem().toString())){
-                                courseID=current.getCourseID();
-                            }
+
+                    Assignments newAssignment = new Assignments(newID, assignmentName.getText().toString(),
+                            assignmentSpinner.getSelectedItem().toString(), endDate.getText().toString(),
+                            startDate.getText().toString(), courseID);
+                    repository.insert(newAssignment);
+                    Intent intent = new Intent(AddModifyAssignments.this, AssignmentsUI.class);
+                    startActivity(intent);
+                    finish();
+                } else if (!error) {
+                    int currentID = Integer.parseInt(assignmentID.getText().toString());
+                    int courseID = 0;
+                    for (Courses current : allCourses) {
+                        if (current.getCourseTitle().equalsIgnoreCase(courseSpinner.getSelectedItem().toString())) {
+                            courseID = current.getCourseID();
                         }
+                    }
 
-                        Assignments update=new Assignments(currentID,assignmentName.getText().toString(),
-                            assignmentSpinner.getSelectedItem().toString(),endDate.getText().toString(),
-                            startDate.getText().toString(),courseID);
-                        repository.update(update);
-                        Intent intent= new Intent(AddModifyAssignments.this,AssignmentsUI.class);
-                        startActivity(intent);
-                        finish();
+                    Assignments update = new Assignments(currentID, assignmentName.getText().toString(),
+                            assignmentSpinner.getSelectedItem().toString(), endDate.getText().toString(),
+                            startDate.getText().toString(), courseID);
+                    repository.update(update);
+                    Intent intent = new Intent(AddModifyAssignments.this, AssignmentsUI.class);
+                    startActivity(intent);
+                    finish();
 
+                }
             }
         });
+
 
         cancelButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
