@@ -4,7 +4,6 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.app.Activity;
 import android.app.AlarmManager;
 import android.app.DatePickerDialog;
 import android.app.PendingIntent;
@@ -12,16 +11,13 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Menu;
-import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
-import android.widget.PopupMenu;
 import android.widget.Spinner;
 import android.widget.TextView;
 
@@ -31,7 +27,6 @@ import com.example.tylerricardc196.Classes.Terms;
 import com.example.tylerricardc196.Database.Repository;
 import com.example.tylerricardc196.R;
 
-import java.lang.reflect.Array;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -309,7 +304,7 @@ public class AddModifyCourses extends AppCompatActivity {
 
     public boolean onCreateOptionsMenu(Menu menu) {
 
-        getMenuInflater().inflate(R.menu.menu_add_modify_courses, menu);
+        getMenuInflater().inflate(R.menu.menu_detailed, menu);
         return super.onCreateOptionsMenu(menu);
     }
 
@@ -339,7 +334,7 @@ public class AddModifyCourses extends AppCompatActivity {
                 return true;
 
 
-            case R.id.SetNotificationButton: ;
+            case R.id.SetNotificationButton:
 
                 try{
                     dateStart=format.parse(startDate.getText().toString());

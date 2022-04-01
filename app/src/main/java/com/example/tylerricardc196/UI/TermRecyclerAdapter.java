@@ -1,8 +1,6 @@
 package com.example.tylerricardc196.UI;
 
 import android.content.Intent;
-import android.graphics.Color;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,9 +10,7 @@ import android.content.Context;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.tylerricardc196.Classes.Courses;
 import com.example.tylerricardc196.Classes.Terms;
-import com.example.tylerricardc196.Database.Repository;
 import com.example.tylerricardc196.R;
 
 import java.util.List;
@@ -43,7 +39,7 @@ public class TermRecyclerAdapter extends RecyclerView.Adapter<TermRecyclerAdapte
             termName = view.findViewById(R.id.TermName);
             termStartDate = view.findViewById(R.id.TermStateDateField);
             termEndDate = view.findViewById(R.id.TermEndDateField);
-            termLabel=view.findViewById(R.id.TermLabel);
+            termLabel=view.findViewById(R.id.TermButton);
             startLabel=view.findViewById(R.id.TermStartDate);
             endLabel=view.findViewById(R.id.TermEndDate);
             termTextView = itemView.findViewById(R.id.TermName);

@@ -1,15 +1,20 @@
 package com.example.tylerricardc196.UI;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Activity;
+import android.app.AlarmManager;
 import android.app.DatePickerDialog;
+import android.app.PendingIntent;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -24,9 +29,11 @@ import com.example.tylerricardc196.Classes.Terms;
 import com.example.tylerricardc196.Database.Repository;
 import com.example.tylerricardc196.R;
 
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 
@@ -250,6 +257,72 @@ public class AddModifyAssignments extends AppCompatActivity {
         SimpleDateFormat dateFormat = new SimpleDateFormat(myFormat, Locale.US);
         date.setText(dateFormat.format(calendar.getTime()));
     }
+
+    public boolean onCreateOptionsMenu(Menu menu) {
+
+        getMenuInflater().inflate(R.menu.menu_detailed, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        SimpleDateFormat format;
+        String formatDate="MM/dd/yy";
+        format=new SimpleDateFormat(formatDate, Locale.US);
+        Date dateStart=null;
+        Date dateEnd=null;
+        EditText assignmentName=findViewById(R.id.AssignmentNameField);
+        EditText startDate=findViewById(R.id.AssignmentStartField);
+        EditText endDate=findViewById(R.id.AssignmentEndDateField);
+
+        switch (item.getItemId()) {
+
+            case R.id.ShareButton:
+
+                Intent sendIntent= new Intent();
+                sendIntent.setAction(Intent.ACTION_SEND);
+                sendIntent.putExtra(Intent.EXTRA_TEXT,assignmentName.getText().toString());
+                sendIntent.putExtra(Intent.EXTRA_TITLE, "Sharing This Assignment Info");
+                sendIntent.setType("text/plain");
+                Intent shareIntent=Intent.createChooser(sendIntent,null);
+                startActivity(shareIntent);
+                return true;
+
+
+            case R.id.SetNotificationButton:
+
+                try{
+                    dateStart=format.parse(startDate.getText().toString());
+                    dateEnd=format.parse(endDate.getText().toString());
+
+                } catch (ParseException e) {
+                    e.printStackTrace();
+                }
+
+                Long trigger=dateStart.getTime();
+                Intent intent=new Intent(AddModifyAssignments.this,NotificationReceiver.class);
+                intent.putExtra("key",assignmentName.getText().toString() +" starts on " + startDate.getText().toString());
+                PendingIntent sender=PendingIntent.getBroadcast(AddModifyAssignments.this,MainActivity.numAlert++,intent,0);
+                AlarmManager alarmManager=(AlarmManager)getSystemService(Context.ALARM_SERVICE);
+                alarmManager.set(AlarmManager.RTC_WAKEUP,trigger,sender);
+
+                Long trigger2=dateEnd.getTime();
+                Intent intent2=new Intent(AddModifyAssignments.this,NotificationReceiver.class);
+                intent2.putExtra("key",assignmentName.getText().toString()+" ends on "+ endDate.getText().toString());
+                PendingIntent sender2=PendingIntent.getBroadcast(AddModifyAssignments.this,MainActivity.numAlert++,intent2,0);
+                AlarmManager alarmManager2=(AlarmManager)getSystemService(Context.ALARM_SERVICE);
+                alarmManager2.set(AlarmManager.RTC_WAKEUP,trigger2,sender2);
+
+
+                return true;
+
+
+        }
+        return false;
+    }
+
+
+
+
 
 
 }

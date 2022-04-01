@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
-        android:id="@+id/TermLabel"
+        android:id="@+id/CourseTermsButton"
         android:title="@string/string_terms" />
     <item
-        android:id="@+id/Course"
+        android:id="@+id/TermCoursesButton"
         android:title="@string/courses" />
     <item
-        android:id="@+id/Assignments"
+        android:id="@+id/CourseAssignmentsButton"
         android:title="@string/assignments" />
 </menu>

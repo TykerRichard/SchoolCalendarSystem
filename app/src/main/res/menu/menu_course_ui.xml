@@ -5,6 +5,9 @@
         android:id="@+id/Add_Course"
         android:title="@string/add_course" />
     <item
-        android:id="@+id/course_details"
-        android:title="@string/course_details" />
+        android:id="@+id/CourseAssignmentsButton"
+        android:title="@string/assignments" />
+    <item
+        android:id="@+id/CourseTermsButton"
+        android:title="@string/term" />
 </menu>

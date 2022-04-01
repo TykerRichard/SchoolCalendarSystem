@@ -63,8 +63,17 @@ public class AssignmentsUI extends AppCompatActivity {
                 startActivity(new Intent(AssignmentsUI.this, AddModifyAssignments.class));
                 finish();
                 return true;
+            case R.id.AssignmentCourse:
+                startActivity(new Intent(AssignmentsUI.this, CoursesUI.class));
+                finish();
+                return true;
+            case R.id.AssignmentTermsButton:
+                startActivity(new Intent(AssignmentsUI.this, TermUI.class));
+                finish();
+                return true;
         }
         return false;
+
     }
 
 

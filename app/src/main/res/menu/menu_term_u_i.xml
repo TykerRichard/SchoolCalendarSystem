@@ -4,11 +4,11 @@
     tools:context="com.example.tylerricardc196.UI.TermUI">
     <item
         android:id="@+id/Action_AddTerm"
-        android:orderInCategory="100"
         android:title="@string/add_term" />
     <item
-        android:id="@+id/action_Term_details"
-        android:orderInCategory="100"
-        android:title="@string/Term_Details"
-         />
+        android:id="@+id/TermCoursesButton"
+        android:title="@string/course" />
+    <item
+        android:id="@+id/TermAssignmentsButton"
+        android:title="@string/assignments" />
 </menu>

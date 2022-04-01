@@ -63,11 +63,19 @@ public class TermUI extends AppCompatActivity {
                 startActivity(new Intent(TermUI.this, AddModifyTerm.class));
                 finish();
                 return true;
+            case R.id.TermAssignmentsButton:
+                startActivity(new Intent(TermUI.this, AssignmentsUI.class));
+                finish();
+                return true;
+            case R.id.TermCoursesButton:
+                startActivity(new Intent(TermUI.this, CoursesUI.class));
+                finish();
+                return true;
         }
-        return false;
+            return false;
+
+
     }
-
-
 }
 
 
