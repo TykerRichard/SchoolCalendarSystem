@@ -92,6 +92,7 @@
         android:textColorHint="#757575"
         android:textSize="15sp"
         app:layout_constraintStart_toEndOf="@+id/EndDate"
+
         app:layout_constraintTop_toBottomOf="@+id/StartDateField"
         tools:ignore="TouchTargetSizeCheck" />
 

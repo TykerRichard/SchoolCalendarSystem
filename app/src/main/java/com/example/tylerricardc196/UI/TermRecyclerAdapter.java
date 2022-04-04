@@ -39,7 +39,7 @@ public class TermRecyclerAdapter extends RecyclerView.Adapter<TermRecyclerAdapte
             termName = view.findViewById(R.id.TermName);
             termStartDate = view.findViewById(R.id.TermStateDateField);
             termEndDate = view.findViewById(R.id.TermEndDateField);
-            termLabel=view.findViewById(R.id.TermButton);
+            termLabel=view.findViewById(R.id.TermNameLV);
             startLabel=view.findViewById(R.id.TermStartDate);
             endLabel=view.findViewById(R.id.TermEndDate);
             termTextView = itemView.findViewById(R.id.TermName);

@@ -204,8 +204,7 @@ public class AddModifyAssignments extends AppCompatActivity {
                                     dialogInterface.cancel();
                                 }
                             });
-                            AlertDialog alert=builder.create();
-                            alert.show();
+
                         }
                     }
                 }
