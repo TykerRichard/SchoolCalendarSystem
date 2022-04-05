@@ -65,6 +65,7 @@ public class CoursesUI extends AppCompatActivity {
         switch (item.getItemId()) {
             case id.Add_Course:
                 startActivity(new Intent(CoursesUI.this, AddModifyCourses.class));
+                finish();
                 return true;
             case id.CourseAssignmentsButton:
                 startActivity(new Intent(CoursesUI.this, AssignmentsUI.class));
