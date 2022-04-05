@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:maxHeight="175sp"
+    android:minHeight="175sp">
+
+    <TextView
+        android:id="@+id/AssignmentNameRecycler"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="150dp"
+        android:layout_marginTop="28dp"
+        android:text="@string/assignment_name"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/AssignmentRNameField"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:text="@string/textview"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.046"
+        app:layout_constraintStart_toEndOf="@+id/AssignmentNameRecycler"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/AssignmentStartDateRecycle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="285dp"
+        android:layout_marginTop="12dp"
+        android:text="@string/start_date"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/AssignmentRNameField" />
+
+    <TextView
+        android:id="@+id/AssignmentStartRecyler"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="285dp"
+        android:layout_marginTop="12dp"
+        android:text="@string/end_date"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/AssignmentStartDateRecycle" />
+
+    <TextView
+        android:id="@+id/AssignmentTypeRecyler"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="285dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/type"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/AssignmentStartRecyler" />
+
+    <TextView
+        android:id="@+id/AssignmentCourseRecyler"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="285dp"
+        android:layout_marginTop="12dp"
+        android:text="@string/course"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/AssignmentTypeRecyler" />
+
+    <TextView
+        android:id="@+id/AssignmentRStartField"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="64dp"
+        android:text="@string/textview"
+        app:layout_constraintStart_toEndOf="@+id/AssignmentStartDateRecycle"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/AssignmentREndField"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="27dp"
+        android:layout_marginTop="10dp"
+        android:text="@string/textview"
+        app:layout_constraintStart_toEndOf="@+id/AssignmentStartRecyler"
+        app:layout_constraintTop_toBottomOf="@+id/AssignmentRStartField" />
+
+    <TextView
+        android:id="@+id/AssignmentRTypeField"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="52dp"
+        android:layout_marginTop="10dp"
+        android:text="@string/textview"
+        app:layout_constraintStart_toEndOf="@+id/AssignmentTypeRecyler"
+        app:layout_constraintTop_toBottomOf="@+id/AssignmentREndField" />
+
+    <TextView
+        android:id="@+id/AssignmentRCourseField"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="38dp"
+        android:layout_marginTop="10dp"
+        android:text="@string/textview"
+        app:layout_constraintStart_toEndOf="@+id/AssignmentCourseRecyler"
+        app:layout_constraintTop_toBottomOf="@+id/AssignmentRTypeField" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
