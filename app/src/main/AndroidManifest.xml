@@ -20,9 +20,9 @@
             android:name=".UI.AddModifyAssignments"
             android:exported="false"
             android:label="Add / Modify Assignment"/>
-        <activity
-            android:name=".UI.CourseRecyclerAdapter"
-            android:exported="false" />
+<!--        <activity-->
+<!--            android:name=".UI.CourseRecyclerAdapter"-->
+<!--            android:exported="false" />-->
         <activity
             android:name=".UI.AddModifyCourses"
             android:exported="false"
