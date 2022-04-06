@@ -13,7 +13,7 @@
         android:layout_marginTop="20dp"
         android:text="@string/textview"
         android:textStyle="bold"
-        app:layout_constraintStart_toEndOf="@+id/TermNameLV"
+        app:layout_constraintStart_toEndOf="@+id/TermButton"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
@@ -23,7 +23,7 @@
         android:layout_marginStart="20dp"
         android:layout_marginTop="10dp"
         android:text="@string/start_date"
-        app:layout_constraintStart_toEndOf="@+id/TermNameLV"
+        app:layout_constraintStart_toEndOf="@+id/TermButton"
         app:layout_constraintTop_toBottomOf="@+id/TermName" />
 
     <TextView
@@ -33,7 +33,7 @@
         android:layout_marginStart="20dp"
         android:layout_marginTop="8dp"
         android:text="@string/end_date"
-        app:layout_constraintStart_toEndOf="@+id/TermNameLV"
+        app:layout_constraintStart_toEndOf="@+id/TermButton"
         app:layout_constraintTop_toBottomOf="@+id/TermStartDate" />
 
     <TextView
@@ -57,7 +57,7 @@
         app:layout_constraintTop_toBottomOf="@+id/TermStateDateField" />
 
     <TextView
-        android:id="@+id/TermNameLV"
+        android:id="@+id/TermButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="50dp"
