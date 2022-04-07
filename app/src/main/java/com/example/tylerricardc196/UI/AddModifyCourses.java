@@ -319,6 +319,7 @@ public class AddModifyCourses extends AppCompatActivity {
         EditText courseName=findViewById(R.id.CourseNameField);
         EditText startDate=findViewById(R.id.CourseStartDateField);
         EditText endDate=findViewById(R.id.CourseEndDateField);
+        EditText notes=findViewById(R.id.NotesField);
 
         switch (item.getItemId()) {
 
@@ -326,7 +327,7 @@ public class AddModifyCourses extends AppCompatActivity {
 
                 Intent sendIntent= new Intent();
                 sendIntent.setAction(Intent.ACTION_SEND);
-                sendIntent.putExtra(Intent.EXTRA_TEXT,courseName.getText().toString());
+                sendIntent.putExtra(Intent.EXTRA_TEXT,notes.getText().toString());
                 sendIntent.putExtra(Intent.EXTRA_TITLE, "Sharing This Course Info");
                 sendIntent.setType("text/plain");
                 Intent shareIntent=Intent.createChooser(sendIntent,null);
